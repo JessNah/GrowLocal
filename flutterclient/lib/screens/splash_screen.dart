@@ -139,7 +139,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                         FadeAnimation(1, Text("Welcome",
                           style: TextStyle(color: Colors.white, fontSize: 50),)),
                           SizedBox(height: 15,),
-                          FadeAnimation(1.3, Text("Be Local, Shop Local, Dine Local, Spend Local, Enjoy Local !!! \nLets grow local businesses!!!",
+                          FadeAnimation(1.3, Text("Be Local, Shop Local, Dine Local, Spend Local, Enjoy Local !!! \nLets grow local businesses !!!",
                             style: TextStyle(color: Colors.white.withOpacity(.7), height: 1.4, fontSize: 20),)),
                             SizedBox(height: 80,),
                             FadeAnimation(1.6, AnimatedBuilder(

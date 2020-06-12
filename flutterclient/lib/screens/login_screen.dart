@@ -130,10 +130,10 @@ class loginContent extends StatelessWidget {
             ],
           ),
         )),
-        SizedBox(height: 40,),
+        SizedBox(height: 50,),
         Container(
           alignment: Alignment.center,
-          child: SizedBox(width: 160,
+          child: SizedBox(width: 260,
             child:
             FadeAnimation(1.8, Center(
               child: RaisedButton(

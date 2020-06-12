@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutterclient/models/category.dart';
+import 'package:flutterclient/models/deals.dart';
+import 'package:flutterclient/models/transactions.dart';
 //import 'package:flutterclient/models/all_submissions.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutterclient/api/api_submissions.dart';
@@ -8,33 +11,34 @@ import 'package:flutterclient/utilities/constants.dart';
 import 'package:flutterclient/utilities/utility_helper.dart';
 
 StatefulWidget ProjectsWidget(BuildContext context, togglePage, String searchInit, bool _isSolutions) {
-    var function = _isSolutions ? fetchContainerSubmissionsPost : fetchContainerProblemsPost;
-    return new FutureBuilder<CommonContainerList>(future: function(), builder: (context, snapshot){
-      if(snapshot.hasData) {
-        return ProjectsPageWidget(snapshot: snapshot, searchInit: searchInit, isSolutions: _isSolutions, togglePage: togglePage);
-      } else if (snapshot.hasError){
-        print(snapshot.error);
-        return new Container();
-      } else {
-        print("failed to get submissions for unknown reasons");
-        return new Container();
-      }
-    });
+    //var function = _isSolutions ? fetchContainerSubmissionsPost : fetchContainerProblemsPost;
+    //var function = fetchContainerSubmissionsPost;
+    //return new FutureBuilder<CommonContainerList>(function(), builder: (context, snapshot){
+      //if(snapshot.hasData) {
+        return ProjectsPageWidget(/*snapshot: snapshot,*/ searchInit: searchInit, /*isSolutions: _isSolutions,*/ togglePage: togglePage);
+      //} else if (snapshot.hasError){
+       // print(snapshot.error);
+       // return new Container();
+      //} else {
+        //print("failed to get submissions for unknown reasons");
+        //return new Container();
+    //  }
+    //});
 }
 
 
 class ProjectsPageWidget extends StatefulWidget {
   const ProjectsPageWidget({
     Key key,
-    @required this.snapshot,
+   // @required this.snapshot,
     @required this.searchInit,
-    @required this.isSolutions,
+    //@required this.isSolutions,
     @required this.togglePage
   }) : super(key: key);
 
-  final AsyncSnapshot snapshot;
+  //final AsyncSnapshot snapshot;
   final String searchInit;
-  final bool isSolutions;
+  //final bool isSolutions;
   final Function togglePage;
 
   @override
@@ -58,57 +62,13 @@ class _ProjectsPageWidget extends State<ProjectsPageWidget> with SingleTickerPro
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center, //TODO: maybe remove
         children: <Widget>[
-          Container(
-            margin: EdgeInsets.only(top: 16, left:16, right: 16, bottom: 4),
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey[200],
-                  offset: Offset(0.0, 1.0),
-                  blurRadius: 4
-                )
-              ]
-            ),
-            child: TextFormField(
-              initialValue: widget.searchInit,
-              onChanged: (text) { setState(() { searchText = text; }); },
-              decoration: InputDecoration(
-                  hintText: "Browse " + (widget.snapshot.data.isProblem ? "problems" : "submissions"),
-                  alignLabelWithHint: true,
-                border: InputBorder.none,
-                hintStyle: TextStyle(
-                  fontSize: 15.0,
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 1.0,
-                ),
-                  prefixIcon: Icon(Icons.search)
-              ),
-            )
-          ),
+
           Container( //TODO: use Expanded?
-              height: 550.0,
+              height: 1000,
               child: ListView(
                 children: <Widget>[
-                  buildFilterWidget(),
-                  Container(
-                    height: 50,
-                    padding: EdgeInsets.only(top: 24, left: 16),
-                    child:
-                    Text(
-                      "Found " + (searchText == "" ? widget.snapshot.data.containerCount.toString() : ((widget.snapshot.data.containerItems.where((i) => i.keywords.contains(searchText.toLowerCase()) || i.name.toLowerCase().contains(searchText.toLowerCase())))).length.toString()) + (widget.isSolutions ? " submissions" : " problems"), //submissions.length.toString()
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.normal,
-                        fontFamily: 'roboto',
-                        color: Color(0xff171717),
-                      ),
-                    ),
-                  ),
                   SizedBox(height: 15,),
-                  ProjectsListContainerWidget(snapshot: widget.snapshot, context: context, searchText: searchText, togglePage: widget.togglePage),
+                  ProjectsListContainerWidget(/*snapshot: widget.snapshot,*/ context: context, searchText: searchText, togglePage: widget.togglePage),
               ]
             ),
           ),
@@ -121,13 +81,13 @@ class _ProjectsPageWidget extends State<ProjectsPageWidget> with SingleTickerPro
 class ProjectsListContainerWidget extends StatelessWidget {
   const ProjectsListContainerWidget({
     Key key,
-    @required this.snapshot,
+   // @required this.snapshot,
     @required this.context,
     @required this.searchText,
     @required this.togglePage
   }) : super(key: key);
 
-  final AsyncSnapshot snapshot;
+  //final AsyncSnapshot snapshot;
   final BuildContext context;
   final String searchText;
   final Function togglePage;
@@ -135,22 +95,52 @@ class ProjectsListContainerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<CommonContainer> submissions = snapshot.data.containerItems;
+    //List<CommonContainer> submissions = snapshot.data.containerItems;
+    List<Category> submissions = categories;
     final double width = MediaQuery
         .of(context)
         .size
         .width;
     return Container(
-      height: (300 * submissions.length.toDouble()) + (56 * submissions.length.toDouble()),
+      height: 950,
       child: Column(
-          children: (searchText == "" ? submissions : ((submissions.where((i) => i.keywords.contains(searchText.toLowerCase()) || i.name.toLowerCase().contains(searchText.toLowerCase())))))
+          children: (searchText == "" ? submissions : ((submissions.where((i) => i.id.contains(searchText.toLowerCase()) || i.categoryName.toLowerCase().contains(searchText.toLowerCase())))))
               .map((submission) => Container(
             child: Column(
               children: <Widget>[
+                Container(
+                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(
+                                  //submission.country,
+
+                                    submission.categoryName,
+                                    style: TextStyle(
+                                      letterSpacing: 1,
+                                      color: Color(0xff171717).withOpacity(0.6),
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                    maxLines: 2
+                                ),
+
+                              ]),
+
+                          SizedBox(height: 2,),
+                        ]
+                    )
+                ),
+
                   Container(
-                    height: 310,
+                    height: 150,
                     width: width - 40,
-                    margin: EdgeInsets.only(right: 16, left: 16, top: 8, bottom: 36),
+                    margin: EdgeInsets.only(right: 16, left: 16, top: 8),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -162,105 +152,242 @@ class ProjectsListContainerWidget extends StatelessWidget {
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5), bottomRight: Radius.circular(5), bottomLeft: Radius.circular(5)),
                                     child: Image(
-                                      image: AssetImage(getCoverImage(submission.uploads)),
+                                      //image: AssetImage(getCoverImage(submission.imageUrl)),
+                                      image: AssetImage(submission.imageUrl),
                                       fit: BoxFit.cover,
                                     ),
                                   )
                               ),
                             )
                         ),
-                        Container(
-                            padding: EdgeInsets.symmetric(horizontal: 0, vertical: 4),
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: <Widget>[
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    Text(
-                                        submission.country,
-                                        style: TextStyle(
-                                          letterSpacing: 1,
-                                          color: Color(0xff171717).withOpacity(0.6),
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w600,
-                                        )
-                                    ),
-                                    Row(
-                                      children: <Widget>[
-                                        Icon(
-                                          FontAwesomeIcons.bookmark,
-                                          size: 12,
-                                          color: Colors.blueGrey,
-                                        ),
-                                        SizedBox(width: 2,),
-                                        Text(
-                                          " Save",
-                                          style: TextStyle(
-                                              fontSize: 11,
-                                              fontWeight: FontWeight.w400,
-                                              color: Color(0xff171717)
-                                          ),
-                                        ),
-                                        SizedBox(width: 12,),
-                                        Icon(
-                                          FontAwesomeIcons.shareAlt,
-                                          size: 12,
-                                          color: Colors.blueGrey.withOpacity(0.8),
-                                        ),
-                                        SizedBox(width: 2,),
-                                        Text(
-                                          " Share",
-                                          style: TextStyle(
-                                              fontSize: 11,
-                                              fontWeight: FontWeight.w400,
-                                              color: Color(0xff171717)
-                                          ),
-                                        ),
-                                        SizedBox(width: 12,),
-                                        Icon(
-                                          FontAwesomeIcons.solidHeart,
-                                          size: 14,
-                                          color: Color(0xff0062ff),
-                                        ),
-                                        SizedBox(width: 2,),
-                                        Text(
-                                          " " + submission.numLikes.toString(),
-                                          style: TextStyle(
-                                              fontSize: 11,
-                                              fontWeight: FontWeight.w400,
-                                              color: Color(0xff171717)
-                                          ),
-                                        ),
-                                        SizedBox(width: 8,),
-                                      ],
-                                    )
-                                  ]),
-                                  Text(
-                                      submission.name,
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.normal,
-                                          color: Color(0xff171717)
-                                      )
-                                  ),
-                                  SizedBox(height: 2,),
-                                  Text(
-                                      submission.description,
-                                      style: TextStyle(
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.normal,
-                                          color: Color(0xff171717)
-                                      )
-                                  ),
-                                ]
-                            )
-                        )
+
                       ],
                     )
-                )
+                ),
+                SizedBox(height: 20,),
+                Container(
+                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 2),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(
+                                  //submission.country,
 
+                                    "Recent Reward Points",
+                                    style: TextStyle(
+                                      letterSpacing: 1,
+                                      color: Color(0xff171717).withOpacity(0.6),
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600,
+                                      fontFamily: 'roboto'
+                                    )
+                                ),
+
+                              ]),
+
+                          SizedBox(height: 2,),
+                        ]
+                    )
+                ),
+                //Expanded(
+                    /*child:*/ Container(
+                        padding: EdgeInsets.symmetric(vertical: 2),
+                        height:150,
+                        child: ListView.builder(
+                            scrollDirection: Axis.vertical,
+                            itemCount: 6,
+                            itemBuilder: (BuildContext context, int index){
+                              Transaction tr = transactions[index];
+                              return InkWell(
+                                //onTap: () => setSearchAndToggle( category.categoryName),
+                                child:
+                                  Container(
+                                      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                      child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                          children: <Widget>[
+                                            Row(
+                                              children: <Widget>[
+                                                Expanded (
+                                                    flex: 1,
+                                                    child:  Center(
+                                                        child : Text(
+
+                                                            tr.date,
+                                                            style: TextStyle(
+                                                                fontSize: 16,
+                                                                fontFamily: 'roboto',
+                                                                fontWeight: FontWeight.bold,
+                                                                color: Colors.grey[800]
+                                                            )
+                                                        )
+
+                                                    ),
+
+                                                ),
+                                                Expanded (
+                                                  flex: 1,
+                                                  child:  Center(
+                                                      child : Text(
+
+                                                          tr.amount,
+                                                          style: TextStyle(
+                                                              fontSize: 16,
+                                                              fontFamily: 'roboto',
+                                                              fontWeight: FontWeight.bold,
+                                                              color: Colors.grey[800]
+                                                          )
+                                                      )
+
+                                                  ),
+
+                                                ),
+                                                Expanded (
+                                                  flex: 1,
+                                                  child:  Center(
+                                                      child : Text(
+
+                                                          tr.rewards,
+                                                          style: TextStyle(
+                                                              fontSize: 16,
+                                                              fontFamily: 'roboto',
+                                                              fontWeight: FontWeight.bold,
+                                                              color: Colors.grey[800]
+                                                          )
+                                                      )
+
+                                                  ),
+
+                                                ),
+//
+                                              ],
+                                            )
+                                          ]
+                                      )
+                                  )
+
+                              );
+                            }
+                        )
+                    ),
+                SizedBox(height: 20,),
+                Container(
+                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 2),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(
+                                  //submission.country,
+
+                                    "Deals ",
+                                    style: TextStyle(
+                                        letterSpacing: 1,
+                                        color: Color(0xff171717).withOpacity(0.6),
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w600,
+                                        fontFamily: 'roboto'
+                                    )
+                                ),
+
+                              ]),
+
+                          SizedBox(height: 2,),
+                        ]
+                    )
+                ),
+                //Expanded(
+                /*child:*/ Container(
+                    padding: EdgeInsets.symmetric(vertical: 2),
+                    height:150,
+                    child: ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        itemCount: 6,
+                        itemBuilder: (BuildContext context, int index){
+                          Deals deal = deals[index];
+                          return InkWell(
+                            //onTap: () => setSearchAndToggle( category.categoryName),
+                              child:
+                              Container(
+                                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                  child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        Row(
+                                          children: <Widget>[
+                                            /*Expanded (
+                                              flex: 1,
+                                              child:  (*/
+                                            SizedBox(width: 10),
+
+                                            Text(
+                                                      deal.dealData,
+                                                      style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontFamily: 'roboto',
+                                                          fontWeight: FontWeight.bold,
+                                                          color: Colors.grey[800]
+                                                      )
+                                                  ),
+
+                                              /*),
+
+                                            ),*/
+                                            /*Expanded (
+                                              flex: 1,
+                                              child:  Center(
+                                                  child : Text(
+
+                                                      tr.amount,
+                                                      style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontFamily: 'roboto',
+                                                          fontWeight: FontWeight.bold,
+                                                          color: Colors.grey[800]
+                                                      )
+                                                  )
+
+                                              ),
+
+                                            ),
+                                            Expanded (
+                                              flex: 1,
+                                              child:  Center(
+                                                  child : Text(
+
+                                                      tr.rewards,
+                                                      style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontFamily: 'roboto',
+                                                          fontWeight: FontWeight.bold,
+                                                          color: Colors.grey[800]
+                                                      )
+                                                  )
+
+                                              ),
+
+                                            ),*/
+//
+                                          ],
+                                        )
+                                      ]
+                                  )
+                              )
+
+                          );
+                        }
+                    )
+                )
+                //)
               ],
             ),
           ))

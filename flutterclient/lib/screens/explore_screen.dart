@@ -332,7 +332,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
 
   Container buildCategoryWidget() {
     return Container(
-                height: 260,
+                height: 600,
                 color: Colors.transparent, //TODO: Or Colors.black12
                 padding: EdgeInsets.only(top: 32, bottom: 32, left: 16),
                 child: Column(
@@ -347,18 +347,18 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                         color: Color(0xff171717),
                       )
                     ),
-                    SizedBox(height: 15,),
+                    SizedBox(height: 20,),
                     Expanded(
                       child: Container(
                         padding: EdgeInsets.symmetric(vertical: 2),
                         height: double.infinity,
                         child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 2,
+                          scrollDirection: Axis.vertical,
+                          itemCount: 6,
                           itemBuilder: (BuildContext context, int index){
                             Category category = categories[index];
                             return InkWell(
-                              onTap: () => setSearchAndToggle("Covid " + category.categoryName),
+                              onTap: () => setSearchAndToggle( category.categoryName),
                               child: Container(
                                 width: 170,
                                 margin: index == 0 ? EdgeInsets.only(right: 16, top: 4, bottom: 4) : EdgeInsets.only(right: 16, top: 4, bottom: 4),
@@ -388,7 +388,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                         )
                                       )
                                     ),*/
-                                    Container(
+                                   /* Container(
                                         width: double.infinity,
                                         child: ClipRRect(
                                           borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5), bottomRight: Radius.circular(5), bottomLeft: Radius.circular(5)),
@@ -397,8 +397,10 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                             fit: BoxFit.cover,
                                           ),
                                         )
-                                    ),
+                                    ),*/
                                     Container(
+                                      width:double.infinity,
+                                      height: 60,
                                       decoration: new BoxDecoration(
                                         color: Colors.purple,
                                         gradient: new LinearGradient(
@@ -408,8 +410,11 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                     ),
                                     Container(
                                       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                                      child: Center(
+
+
+                                       child: Center(
                                           child : Text(
+
                                         category.categoryName,
                                         style: TextStyle(
                                           fontSize: 16,
@@ -418,6 +423,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                           color: Colors.grey[800]
                                         )
                                       )
+
                                       ),
                                     )
                                   ],
@@ -538,7 +544,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                     height: double.infinity,
                     child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: 3,
+                        itemCount: 6,
                         itemBuilder: (BuildContext context, int index){
                           ProblemItem problem = topProblems[index];
                           return Container(
