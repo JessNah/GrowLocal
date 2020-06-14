@@ -368,7 +368,7 @@ class _BusinessExploreScreenState extends State<BusinessExploreScreen> with Sing
                     height: double.infinity,
                     child: ListView.builder(
                         scrollDirection: Axis.vertical,
-                        itemCount: 6,
+                        itemCount: businesses.length,
                         itemBuilder: (BuildContext context, int index){
                           BusinessData business = businesses[index];
                           return InkWell(

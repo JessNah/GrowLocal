@@ -200,7 +200,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
                         height:150,
                         child: ListView.builder(
                             scrollDirection: Axis.vertical,
-                            itemCount: 6,
+                            itemCount: transactions.length,
                             itemBuilder: (BuildContext context, int index){
                               Transaction tr = transactions[index];
                               return InkWell(
@@ -311,7 +311,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
                     height:150,
                     child: ListView.builder(
                         scrollDirection: Axis.vertical,
-                        itemCount: 6,
+                        itemCount: deals.length,
                         itemBuilder: (BuildContext context, int index){
                           Deals deal = deals[index];
                           return InkWell(

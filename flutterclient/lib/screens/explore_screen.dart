@@ -355,7 +355,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                         height: double.infinity,
                         child: ListView.builder(
                           scrollDirection: Axis.vertical,
-                          itemCount: 6,
+                          itemCount: categories.length,
                           itemBuilder: (BuildContext context, int index){
                             Category category = categories[index];
                             return InkWell(

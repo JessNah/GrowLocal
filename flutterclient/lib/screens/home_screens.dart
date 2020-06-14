@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   FontAwesomeIcons.rocket,
                   size: 25,
                 ),
-                text: "LOCALS",
+                text: "REWARDS",
               ),
               Tab(
                 icon: Icon(

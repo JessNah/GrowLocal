@@ -1,4 +1,5 @@
 import 'package:flutterclient/models/category.dart';
+import 'package:flutterclient/models/deals.dart';
 //import 'package:flutterclient/models/top_submissions.dart';
 import 'package:flutterclient/screens/projects_screen.dart';
 import 'package:flutterclient/utilities/common_objects.dart';
@@ -333,7 +334,6 @@ class _ExploreDealsScreenState extends State<ExploreDealsScreen> with SingleTick
   Container buildCategoryWidget() {
     return Container(
                 height: 600,
-
                 color: Colors.yellow[100], //TODO: Or Colors.black12
                 padding: EdgeInsets.only(top: 32, bottom: 32, left: 16),
                 child: Column(
@@ -343,9 +343,9 @@ class _ExploreDealsScreenState extends State<ExploreDealsScreen> with SingleTick
                       "Local Business Deals",
                       style: TextStyle(
                         fontSize: 25,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.bold,
                         letterSpacing: 1.0,
-                        color: Color(0xff171717),
+                        color: Colors.red,
                       )
                     ),
                     SizedBox(height: 20,),
@@ -355,17 +355,17 @@ class _ExploreDealsScreenState extends State<ExploreDealsScreen> with SingleTick
                         height: double.infinity,
                         child: ListView.builder(
                           scrollDirection: Axis.vertical,
-                          itemCount: 6,
+                          itemCount: categories.length,
                           itemBuilder: (BuildContext context, int index){
                             Category category = categories[index];
                             return InkWell(
-                              onTap: () => setSearchAndToggle( category.categoryName),
+                            //  onTap: () => setSearchAndToggle( category.categoryName),
                               child: Container(
                                 width: 170,
                                 margin: index == 0 ? EdgeInsets.only(right: 16, top: 4, bottom: 4) : EdgeInsets.only(right: 16, top: 4, bottom: 4),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
-                                  color: Colors.white,
+                               //   color: Colors.white,
                                   boxShadow: [
                                     BoxShadow(
                                       color: Colors.transparent, //TODO: Colors.grey[200]
@@ -377,138 +377,72 @@ class _ExploreDealsScreenState extends State<ExploreDealsScreen> with SingleTick
                                 child: Stack(
                                 /*  crossAxisAlignment: CrossAxisAlignment.start,*/
                                   children: <Widget>[
-/*                                    Expanded(
-                                      child: Container(
-                                        width: double.infinity,
-                                        child: ClipRRect(
-                                          borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5), bottomRight: Radius.circular(5), bottomLeft: Radius.circular(5)),
-                                            child: Image(
-                                              image: AssetImage(category.imageUrl),
-                                              fit: BoxFit.cover,
-                                            ),
-                                        )
-                                      )
-                                    ),*/
-                                   /* Container(
-                                        width: double.infinity,
-                                        child: ClipRRect(
-                                          borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5), bottomRight: Radius.circular(5), bottomLeft: Radius.circular(5)),
-                                          child: Image(
-                                            image: AssetImage(category.imageUrl),
-                                            fit: BoxFit.cover,
-                                          ),
-                                        )
-                                    ),*/
-/*                                    Container(
-                                      width:double.infinity,
-                                      height: 60,
-                                      decoration: new BoxDecoration(
-                                        color: Colors.purple[200],
-                                        gradient: new LinearGradient(
-                                          colors: [Colors.lightBlue[100], Colors.lightBlue[300]],
-                                        ),
-                                      ),
-                                    ),*/
                                     Padding(
                                       padding: EdgeInsets.only(bottom: 5),
-                                      child: ListTile(
-                                        dense: true,
-                                        contentPadding: EdgeInsets.symmetric(horizontal: 0.0),
-                                        leading: Container(
-                                          width: 38.0,
-                                          height: 38.0,
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: Colors.black45.withOpacity(0.1),
-                                                offset: Offset(0, 2),
-                                                blurRadius: 6.0,
-                                              ),
-                                            ],
-                                          ),
-                                          child: CircleAvatar(
-                                            child: ClipOval(
-                                              child: Image(
-                                                height: 40.0,
-                                                width: 40.0,
-                                                image: AssetImage("images/userIcon.png"),
-                                                fit: BoxFit.cover,
-                                              ),
+                                      child:  Column(children: [
+                                          Container (
+                                              alignment: Alignment.centerLeft,
+                                            child:
+                                          Text(
+
+                                            category.categoryName,
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.blue,
                                             ),
+                                          )
                                           ),
-                                        ),
-                                        title: Text(
-                                          "commentItem.author",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        subtitle: Column(children: [
-                                          Align(
+                                        SizedBox(height: 10,),
+                                          Container(
+                                        //    color: Colors.lightGreen[100],
+                                             height: 150,
                                               alignment: Alignment.centerLeft,
-                                              child: Text("commentItem.comment")),
-                                          Align(
-                                              alignment: Alignment.centerLeft,
-                                              child:Row(
-                                                  mainAxisSize: MainAxisSize.min,
-                                                  children: <Widget>[
-                                                    Container(
-                                                        transform: Matrix4.translationValues(-14.0, 0.0, 0.0),
-                                                        child: IconButton(
-                                                          iconSize: 18,
-                                                          icon: Icon(
-                                                            Icons.favorite_border,
+                                              child: ListView.builder(
+                                                  scrollDirection: Axis.vertical,
+                                                  itemCount: categories[index].d.length,
+                                                  itemBuilder: (BuildContext context, int index2){
+                                                    Deals d = categories[index].d[index2];
+                                                    return InkWell(
+                                                //      onTap: () => setSearchAndToggle( category.categoryName),
+                                                      child: Container(
+                                                          width: 170,
+                                                          margin: index == 0 ? EdgeInsets.only(right: 16, top: 4, bottom: 4) : EdgeInsets.only(right: 16, top: 4, bottom: 4),
+
+                                                          decoration: BoxDecoration(
+                                                              borderRadius: BorderRadius.circular(10),
+                                                           //   color: Colors.lightGreen[100],
+                                                              boxShadow: [
+                                                                BoxShadow(
+                                                                    color: Colors.transparent, //TODO: Colors.grey[200]
+                                                                    offset: Offset(0.0, 4.0),
+                                                                    blurRadius: 4
+                                                                )
+                                                              ]
                                                           ),
-                                                          color: Color(0xff0062ff),
-                                                          onPressed: () => print('Like comment'),
-                                                        )
-                                                    ),
-                                                    Container(
-                                                      transform: Matrix4.translationValues(-20.0, 0.0, 0.0),
-                                                      child: Text(
-                                                        "commentItem.numLikes.toString()",
-                                                        style: TextStyle(
-                                                            fontSize: 10,
-                                                            fontWeight: FontWeight.w500,
-                                                            color: Color(0xff171717)
-                                                        ),
+                                                          child:  Align(
+                                                              alignment: Alignment.centerLeft,
+                                                              child: Text(d.dealData)
+                                                              ),
+                                                      )
+                                                    );
+                                                    }
+                                                    )
+                                                    )
+                                                    ],
                                                       ),
-                                                    ),
-                                                  ])),
-                                        ]),
-                                      ),
-                                    ),
 
-                                   /* Container(
-                                      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-
-
-                                       child: Center(
-                                          child : Text(
-
-                                        category.categoryName,
-                                        style: TextStyle(
-                                          fontSize: 16,
-                                            fontFamily: 'roboto',
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.blueGrey[700]
-                                        )
-                                      )
-
-                                      ),
-                                    )*/
-                                  ],
-                                )
-                              ),
+                                                )
+                                               ]
+                                                    )
+                            )
                             );
-                          }
-                        )
-                      )
+                                                  }
+                                              ),
+                                          )
                     )
-                  ],
-                )
-              );
+                                        ]
+                                       ),
+                                      );
   }
 
   Container buildExploreFilterWidget() {
