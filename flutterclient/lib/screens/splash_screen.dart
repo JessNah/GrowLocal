@@ -94,7 +94,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
         .size
         .width;
     return Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.yellow[100],
         body: Container(
             width: double.infinity,
             child: Stack(
@@ -117,11 +117,11 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                         ]),
                   ))),
                   Positioned(
-                      top: 50,
-                      right: -165,
+                      top: 120,
+                      right: 20,
                       child: FadeAnimation(1, Container(
-                          width: 540,
-                          height: 505,
+                          width: 320,
+                          height: 145,
                           decoration: BoxDecoration(
                               image: DecorationImage(
                                 image: AssetImage('images/cooperateBackground.png'),
@@ -137,10 +137,10 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         FadeAnimation(1, Text("Welcome",
-                          style: TextStyle(color: Colors.lightGreen, fontSize: 40),)),
+                          style: TextStyle(color: Colors.deepOrangeAccent, fontSize: 40),)),
                           SizedBox(height: 15,),
                           FadeAnimation(1.3, Text("Be Local,  Shop Local, Dine Local !!! \n\nSpend Local, Enjoy Local !!! \n\nLets grow local businesses !!!",
-                            style: TextStyle(color: Colors.yellowAccent[100], height: 1.4, fontSize: 20, fontStyle: FontStyle.italic),)),
+                            style: TextStyle(color: Colors.blueGrey, height: 1.4, fontSize: 20, fontStyle: FontStyle.italic),)),
                             SizedBox(height: 80,),
                             FadeAnimation(1.6, AnimatedBuilder(
                               animation: _scaleController,
@@ -155,7 +155,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                                       padding: EdgeInsets.all(10),
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(50),
-                                        color: Color(0xff0062ff).withOpacity(.4)
+                                        color: Colors.deepOrangeAccent.withOpacity(.4)
                                       ),
                                       child: InkWell(
                                         onTap: () {
@@ -176,7 +176,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                                                       height: 60,
                                                       decoration: BoxDecoration(
                                                         shape: BoxShape.circle,
-                                                        color: Color(0xff0062ff),
+                                                        color: Colors.deepOrangeAccent,
                                                       ),
                                                       child: hideIcon == false ? Icon(Icons.arrow_forward, color: Colors.white,) : Container(),
                                                     ),

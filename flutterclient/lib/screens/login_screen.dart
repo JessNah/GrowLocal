@@ -12,7 +12,7 @@ class LoginPage extends StatelessWidget {
         .size
         .width;
     return Scaffold(
-      backgroundColor: Color(0xff161616),
+      backgroundColor: Colors.yellow[100],
         body: Container(
             width: double.infinity,
             child: Stack(
@@ -105,7 +105,7 @@ class loginContent extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         FadeAnimation(1.2, Text("Login",
-          style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold),)),
+          style: TextStyle(color: Colors.redAccent, fontSize: 40, fontWeight: FontWeight.bold),)),
         SizedBox(height: 30,),
         FadeAnimation(1.5, Container(
           padding: EdgeInsets.all(10),
@@ -164,9 +164,9 @@ class loginContent extends StatelessWidget {
                 //onPressed: _navigateToHomeScreen,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18.0),
-                    side: BorderSide(color: Color(0xff0062ff))
+                    side: BorderSide(color: Colors.redAccent)
                 ),
-                color: Color(0xff0062ff),
+                color: Colors.redAccent,
                 padding: EdgeInsets.all(15),
                 child: Center(child: Text("Continue", style: TextStyle(color: Colors.white),)),
               ),

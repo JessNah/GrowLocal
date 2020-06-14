@@ -81,6 +81,9 @@ flutter:
     - images/charlieSketch.jpg
     - images/charlieSketchCover.jpg
     - images/spices-of-india.jpg
+    - images/vegan.jpg
+    - images/pizza.jpg
+    - images/thai.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

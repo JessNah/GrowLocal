@@ -83,6 +83,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
         )
     );
     return Container(
+        color: Colors.yellow[100],
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center, //TODO: maybe remove
             children: <Widget>[
@@ -373,6 +374,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                             Category category = categories[index];
                             return InkWell(
                               onTap: () => setSearchAndToggle( category.categoryName),
+
                               child: Card(
                                 elevation: 3.0,
                                  shape: RoundedRectangleBorder(side: BorderSide(width: 0.2),borderRadius: BorderRadius.circular(10)),
@@ -392,6 +394,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                  )
 
                                 ),
+
                             );
                           }
                         )

@@ -83,6 +83,7 @@ class _BusinessExploreScreenState extends State<BusinessExploreScreen> with Sing
         )
     );
     return Container(
+        color: Colors.yellow[100],
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center, //TODO: maybe remove
             children: <Widget>[
@@ -351,7 +352,7 @@ class _BusinessExploreScreenState extends State<BusinessExploreScreen> with Sing
 
           children: <Widget>[
             Text(
-                "Customer Transaction Summary",
+                "  Customer Transaction Summary",
                 style: TextStyle(
                   fontSize: 18,
                   fontFamily: 'roboto',
@@ -378,7 +379,6 @@ class _BusinessExploreScreenState extends State<BusinessExploreScreen> with Sing
                                 margin: index == 0 ? EdgeInsets.only(right: 16, top: 4, bottom: 4) : EdgeInsets.only(right: 16, top: 4, bottom: 4),
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
-                                    color: Colors.white,
                                     boxShadow: [
                                       BoxShadow(
                                           color: Colors.transparent, //TODO: Colors.grey[200]
@@ -391,78 +391,78 @@ class _BusinessExploreScreenState extends State<BusinessExploreScreen> with Sing
                                   /*  crossAxisAlignment: CrossAxisAlignment.start,*/
                                   children: <Widget>[
                                     Container(
-                                      width:double.infinity,
-                                     // padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                                      height: 60,
-                                      decoration: new BoxDecoration(
-                                        color: Colors.redAccent,
-                                        gradient: new LinearGradient(
-                                          colors: [Colors.blue[100], Colors.blue[300]],
+                                        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 1),
+                                        margin: EdgeInsets.only(left: 6),
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(10),
+                                            gradient: new LinearGradient(
+                                                colors: [Colors.blue[100].withOpacity(0.6), Colors.blue[300]],),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  color: Colors.grey[200],
+                                                  offset: Offset(0.0, 1.0),
+                                                  blurRadius: 4
+                                              )
+                                            ]
                                         ),
-                                      ),
-                                    ),
-
-                                    Container(
-                                        padding: EdgeInsets.symmetric(horizontal: 0, vertical: 20),
                                         child: Column(
                                             crossAxisAlignment: CrossAxisAlignment.start,
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             children: <Widget>[
-                                              Row(
-                                                children: <Widget>[
-                                                  Expanded (
-                                                    flex: 1,
-                                                    child:  Center(
-                                                        child : Text(
-
-                                                            business.customerName,
-                                                            style: TextStyle(
-                                                                fontSize: 16,
-                                                                fontFamily: 'roboto',
-                                                                fontWeight: FontWeight.bold,
-                                                                color: Colors.grey[800]
-                                                            )
-                                                        )
-
-                                                   ),
-
-                                                  ),
-                                                  Expanded (
-                                                    flex: 1,
-                                                    child:  Center(
-                                                        child : Text(
-
-                                                            business.phoneNum,
-                                                            style: TextStyle(
-                                                                fontSize: 16,
-                                                                fontFamily: 'roboto',
-                                                                fontWeight: FontWeight.bold,
-                                                                color: Colors.grey[800]
-                                                            )
-                                                        )
-
+                                              Padding(
+                                                padding: EdgeInsets.only(bottom: 5),
+                                                child: ListTile(
+                                                  contentPadding: EdgeInsets.symmetric(horizontal: 0.0),
+                                                  leading: Container(
+                                                    width: 46.0,
+                                                    height: 46.0,
+                                                    decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      boxShadow: [
+                                                        BoxShadow(
+                                                          color: Colors.black45.withOpacity(0.1),
+                                                          offset: Offset(0, 2),
+                                                          blurRadius: 6.0,
+                                                        ),
+                                                      ],
                                                     ),
-
-                                                  ),
-                                                  Expanded (
-                                                    flex: 1,
-                                                    child:  Center(
-                                                        child : Text(
-
-                                                            business.amount,
-                                                            style: TextStyle(
-                                                                fontSize: 16,
-                                                                fontFamily: 'roboto',
-                                                                fontWeight: FontWeight.bold,
-                                                                color: Colors.grey[800]
-                                                            )
-                                                        )
-
+                                                    child: CircleAvatar(
+                                                      child: ClipOval(
+                                                        child: Image(
+                                                          height: 47.0,
+                                                          width: 47.0,
+                                                          image: AssetImage("images/userIcon.png"),
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
                                                     ),
-
                                                   ),
-//
-                                                ],
+                                                  title: Text(
+                                                    business.customerName,
+                                                    style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontFamily: 'roboto',
+                                                        fontWeight: FontWeight.bold,
+                                                        color: Colors.grey[800]
+                                                    ),
+                                                  ),
+                                                  subtitle: Text(
+                                                    business.phoneNum,
+                                                    style: TextStyle(
+                                                      fontWeight: FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                  trailing: Text(
+
+                                                      business.amount,
+                                                      style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontFamily: 'roboto',
+                                                          fontWeight: FontWeight.bold,
+                                                          color: Colors.grey[800]
+                                                      )
+                                                  ),
+                                                ),
                                               )
                                             ]
                                         )

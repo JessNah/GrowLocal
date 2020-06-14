@@ -50,7 +50,7 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> with SingleTick
               ),
               child: TabBar(
                   controller: _tabController,
-                  labelColor: Color(0xff0062ff),
+                  labelColor: Colors.redAccent,
                   labelStyle: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 10,

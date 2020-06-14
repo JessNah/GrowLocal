@@ -83,6 +83,7 @@ class _ExploreDealsScreenState extends State<ExploreDealsScreen> with SingleTick
         )
     );
     return Container(
+        color: Colors.yellow[100],
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center, //TODO: maybe remove
             children: <Widget>[
@@ -383,14 +384,48 @@ class _ExploreDealsScreenState extends State<ExploreDealsScreen> with SingleTick
                                           Container (
                                               alignment: Alignment.centerLeft,
                                             child:
-                                          Text(
-
-                                            category.categoryName,
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.blue,
-                                            ),
-                                          )
+//                                            Text(
+//
+//                                              category.categoryName,
+//                                              style: TextStyle(
+//                                                fontWeight: FontWeight.bold,
+//                                                color: Colors.blue,
+//                                              ),
+//                                            )
+                                              ListTile(
+                                                contentPadding: EdgeInsets.symmetric(horizontal: 0.0),
+                                                leading: Container(
+                                                  width: 44.0,
+                                                  height: 44.0,
+                                                  decoration: BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        color: Colors.black45.withOpacity(0.1),
+                                                        offset: Offset(0, 2),
+                                                        blurRadius: 6.0,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  child: CircleAvatar(
+                                                    child: ClipRRect(
+                                                      child: Image(
+                                                        height: 45.0,
+                                                        width: 45.0,
+                                                        image: AssetImage(category.imageUrl),
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                title: Text(
+                                                  category.categoryName,
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.blue
+                                                  ),
+                                                ),
+                                              )
                                           ),
                                         SizedBox(height: 10,),
                                           Container(
