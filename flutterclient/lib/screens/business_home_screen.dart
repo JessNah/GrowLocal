@@ -66,7 +66,7 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> with SingleTick
                         FontAwesomeIcons.rocket,
                         size: 25,
                       ),
-                      text: "TRASCATIONS",
+                      text: "TRANSACTIONS",
                     ),
                     Tab(
                       icon: Icon(

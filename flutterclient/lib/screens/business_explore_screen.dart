@@ -351,7 +351,7 @@ class _BusinessExploreScreenState extends State<BusinessExploreScreen> with Sing
 
           children: <Widget>[
             Text(
-                "Customer Transcation Summary",
+                "Customer Transaction Summary",
                 style: TextStyle(
                   fontSize: 18,
                   fontFamily: 'roboto',

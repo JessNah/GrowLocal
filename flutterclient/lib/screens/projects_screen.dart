@@ -123,9 +123,9 @@ class ProjectsListContainerWidget extends StatelessWidget {
                                     submission.categoryName,
                                     style: TextStyle(
                                       letterSpacing: 1,
-                                      color: Color(0xff171717).withOpacity(0.6),
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w600,
+                                      color: Colors.deepOrange,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
                                     ),
                                     maxLines: 2
                                 ),
@@ -138,7 +138,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
                 ),
 
                   Container(
-                    height: 150,
+                    height: 130,
                     width: width - 40,
                     margin: EdgeInsets.only(right: 16, left: 16, top: 8),
                     child: Column(
@@ -180,10 +180,10 @@ class ProjectsListContainerWidget extends StatelessWidget {
                                     "Recent Reward Points",
                                     style: TextStyle(
                                       letterSpacing: 1,
-                                      color: Color(0xff171717).withOpacity(0.6),
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w600,
-                                      fontFamily: 'roboto'
+                                      color: Colors.blue,
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'Roboto Mono'
                                     )
                                 ),
 
@@ -220,9 +220,9 @@ class ProjectsListContainerWidget extends StatelessWidget {
 
                                                             tr.date,
                                                             style: TextStyle(
-                                                                fontSize: 16,
+                                                                fontSize: 12,
                                                                 fontFamily: 'roboto',
-                                                                fontWeight: FontWeight.bold,
+                                                                fontWeight: FontWeight.normal,
                                                                 color: Colors.grey[800]
                                                             )
                                                         )
@@ -237,9 +237,9 @@ class ProjectsListContainerWidget extends StatelessWidget {
 
                                                           tr.amount,
                                                           style: TextStyle(
-                                                              fontSize: 16,
+                                                              fontSize: 12,
                                                               fontFamily: 'roboto',
-                                                              fontWeight: FontWeight.bold,
+                                                              fontWeight: FontWeight.normal,
                                                               color: Colors.grey[800]
                                                           )
                                                       )
@@ -254,9 +254,9 @@ class ProjectsListContainerWidget extends StatelessWidget {
 
                                                           tr.rewards,
                                                           style: TextStyle(
-                                                              fontSize: 16,
+                                                              fontSize: 12,
                                                               fontFamily: 'roboto',
-                                                              fontWeight: FontWeight.bold,
+                                                              fontWeight: FontWeight.normal,
                                                               color: Colors.grey[800]
                                                           )
                                                       )
@@ -291,9 +291,9 @@ class ProjectsListContainerWidget extends StatelessWidget {
                                     "Deals ",
                                     style: TextStyle(
                                         letterSpacing: 1,
-                                        color: Color(0xff171717).withOpacity(0.6),
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w600,
+                                        color: Colors.green,
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.bold,
                                         fontFamily: 'roboto'
                                     )
                                 ),
@@ -332,9 +332,9 @@ class ProjectsListContainerWidget extends StatelessWidget {
                                             Text(
                                                       deal.dealData,
                                                       style: TextStyle(
-                                                          fontSize: 16,
+                                                          fontSize: 12,
                                                           fontFamily: 'roboto',
-                                                          fontWeight: FontWeight.bold,
+                                                          fontWeight: FontWeight.normal,
                                                           color: Colors.grey[800]
                                                       )
                                                   ),

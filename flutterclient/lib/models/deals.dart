@@ -24,6 +24,6 @@ List<Deals> deals = [
       dealData: "Get 5x rewards on nappies by 30/Jun/2020",
   ),
   Deals(
-      dealData: "Get 10x rewards on nappies by 30/Jun/2020",
+      dealData: "Get 5% off on all cleaning products by 30/Jun/2020",
   )
 ];
