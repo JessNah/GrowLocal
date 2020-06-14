@@ -137,10 +137,10 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         FadeAnimation(1, Text("Welcome",
-                          style: TextStyle(color: Colors.white, fontSize: 50),)),
+                          style: TextStyle(color: Colors.lightGreen, fontSize: 40),)),
                           SizedBox(height: 15,),
-                          FadeAnimation(1.3, Text("Be Local, Shop Local, Dine Local, Spend Local, Enjoy Local !!! \nLets grow local businesses !!!",
-                            style: TextStyle(color: Colors.white.withOpacity(.7), height: 1.4, fontSize: 20),)),
+                          FadeAnimation(1.3, Text("Be Local,  Shop Local, Dine Local !!! \n\nSpend Local, Enjoy Local !!! \n\nLets grow local businesses !!!",
+                            style: TextStyle(color: Colors.yellowAccent[100], height: 1.4, fontSize: 20, fontStyle: FontStyle.italic),)),
                             SizedBox(height: 80,),
                             FadeAnimation(1.6, AnimatedBuilder(
                               animation: _scaleController,

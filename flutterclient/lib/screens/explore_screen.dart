@@ -333,15 +333,16 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
   Container buildCategoryWidget() {
     return Container(
                 height: 600,
-                color: Colors.transparent, //TODO: Or Colors.black12
+
+                color: Colors.yellow[100], //TODO: Or Colors.black12
                 padding: EdgeInsets.only(top: 32, bottom: 32, left: 16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      "Favorite local businesses",
+                      "Local businesses",
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 25,
                         fontWeight: FontWeight.w600,
                         letterSpacing: 1.0,
                         color: Color(0xff171717),
@@ -402,9 +403,9 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                       width:double.infinity,
                                       height: 60,
                                       decoration: new BoxDecoration(
-                                        color: Colors.purple,
+                                        color: Colors.purple[200],
                                         gradient: new LinearGradient(
-                                          colors: [Colors.redAccent, Colors.cyanAccent],
+                                          colors: [Colors.lightBlue[100], Colors.lightBlue[300]],
                                         ),
                                       ),
                                     ),
@@ -420,7 +421,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                           fontSize: 16,
                                             fontFamily: 'roboto',
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.grey[800]
+                                          color: Colors.blueGrey[700]
                                         )
                                       )
 

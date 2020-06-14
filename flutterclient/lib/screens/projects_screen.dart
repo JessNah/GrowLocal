@@ -103,6 +103,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
         .width;
     return Container(
       height: 950,
+      color: Colors.yellow[100],
       child: Column(
           children: (searchText == "" ? submissions : ((submissions.where((i) => i.id.contains(searchText.toLowerCase()) || i.categoryName.toLowerCase().contains(searchText.toLowerCase())))))
               .map((submission) => Container(

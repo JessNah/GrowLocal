@@ -1,4 +1,3 @@
-import 'package:flutterclient/models/business_data.dart';
 import 'package:flutterclient/models/category.dart';
 //import 'package:flutterclient/models/top_submissions.dart';
 import 'package:flutterclient/screens/projects_screen.dart';
@@ -11,12 +10,12 @@ import 'package:flutterclient/utilities/constants.dart';
 import 'package:flutterclient/utilities/utility_helper.dart';
 import 'package:flutterclient/screens/project_summary_screen.dart';
 
-class BusinessExploreScreen extends StatefulWidget {
+class ExploreDealsScreen extends StatefulWidget {
   @override
-  _BusinessExploreScreenState createState() => _BusinessExploreScreenState();
+  _ExploreDealsScreenState createState() => _ExploreDealsScreenState();
 }
 
-class _BusinessExploreScreenState extends State<BusinessExploreScreen> with SingleTickerProviderStateMixin{
+class _ExploreDealsScreenState extends State<ExploreDealsScreen> with SingleTickerProviderStateMixin{
 
   ExplorePage_Tab currentTab = ExplorePage_Tab.explore_tab;
   String searchText= "";
@@ -39,7 +38,7 @@ class _BusinessExploreScreenState extends State<BusinessExploreScreen> with Sing
   }
 
   void setTopSubmissions(List<SubmissionItem> submissions){
-    topSubmissions = submissions;
+      topSubmissions = submissions;
   }
 
   void setTopProblems(List<ProblemItem> problems){
@@ -58,7 +57,7 @@ class _BusinessExploreScreenState extends State<BusinessExploreScreen> with Sing
   Widget build(BuildContext context) {
     switch (currentTab) {
       case ExplorePage_Tab.explore_tab:
-        return ExploreWidget();
+        return DealsWidget();
         break;
       case ExplorePage_Tab.projects_tab:
         return ProjectsWidget(context, togglePage, searchText, _isSolutions);
@@ -66,12 +65,12 @@ class _BusinessExploreScreenState extends State<BusinessExploreScreen> with Sing
       case ExplorePage_Tab.summary_tab:
         return ProjectSummaryPage(context: context, togglePage: togglePage, container: activeProject);
       default:
-        return ExploreWidget();
+        return DealsWidget();
     }
   }
 
 
-  Container ExploreWidget() {
+  Container DealsWidget() {
     final Shader linearGradient = LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
@@ -103,7 +102,7 @@ class _BusinessExploreScreenState extends State<BusinessExploreScreen> with Sing
                   child: TextField(
                     onChanged: (text) { setSearchAndToggle(text); },
                     decoration: InputDecoration(
-                        hintText: "Browse By Customer",
+                        hintText: "Browse Deals",
                         alignLabelWithHint: true,
                         border: InputBorder.none,
                         hintStyle: TextStyle(
@@ -119,7 +118,7 @@ class _BusinessExploreScreenState extends State<BusinessExploreScreen> with Sing
                   height: 550.0,
                   child: ListView(
                       children: <Widget>[
-                        //   buildExploreFilterWidget(),
+                     //   buildExploreFilterWidget(),
 /*                        Container(
                           height: 50,
                           padding: EdgeInsets.only(top: 24, left: 16),
@@ -135,9 +134,9 @@ class _BusinessExploreScreenState extends State<BusinessExploreScreen> with Sing
                           ),
                         ),*/
                         buildCategoryWidget(),
-                        // TopRatedWidget(setTopSubmissions),
-                        // ProblemsWidget(setTopProblems),
-                        // buildFooter(),
+                       // TopRatedWidget(setTopSubmissions),
+                       // ProblemsWidget(setTopProblems),
+                       // buildFooter(),
                       ]
                   )
               )
@@ -248,8 +247,8 @@ class _BusinessExploreScreenState extends State<BusinessExploreScreen> with Sing
                               width: 160,
                               margin: index == 0 ? EdgeInsets.only(right: 16, top: 4, bottom: 12) : EdgeInsets.only(right: 16, top: 4, bottom: 12),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Colors.grey[850],
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.grey[850],
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -269,47 +268,47 @@ class _BusinessExploreScreenState extends State<BusinessExploreScreen> with Sing
                                   Container(
                                       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                                       child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          children: <Widget>[
-                                            Text(
-                                                submission.country,
-                                                style: TextStyle(
-                                                  letterSpacing: 1,
-                                                  color: Colors.white,
-                                                  fontSize: 10,
-                                                  fontWeight: FontWeight.w600,
-                                                )
-                                            ),
-                                            Text(
-                                                submission.name,
-                                                style: TextStyle(
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.white
-                                                )
-                                            ),
-                                            Row(
-                                              children: <Widget>[
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: <Widget>[
+                                          Text(
+                                              submission.country,
+                                              style: TextStyle(
+                                                letterSpacing: 1,
+                                                color: Colors.white,
+                                                fontSize: 10,
+                                                fontWeight: FontWeight.w600,
+                                              )
+                                          ),
+                                          Text(
+                                            submission.name,
+                                            style: TextStyle(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white
+                                            )
+                                          ),
+                                          Row(
+                                            children: <Widget>[
 //                                              Text('🔥'), can use emojis too, comment for later
-                                                Icon(
-                                                  FontAwesomeIcons.solidHeart,
-                                                  size: 12,
-                                                  color: Color(0xff0062ff),
-                                                ),
-                                                SizedBox(width: 2,),
-                                                Text(
+                                              Icon(
+                                                FontAwesomeIcons.solidHeart,
+                                                size: 12,
+                                                color: Color(0xff0062ff),
+                                              ),
+                                              SizedBox(width: 2,),
+                                              Text(
                                                   " " + submission.numLikes.toString(),
                                                   style: TextStyle(
                                                       fontSize: 11,
                                                       fontWeight: FontWeight.bold,
                                                       color: Colors.white
                                                   ),
-                                                ),
-                                                SizedBox(width: 8,),
-                                              ],
-                                            )
-                                          ]
+                                              ),
+                                              SizedBox(width: 8,),
+                                            ],
+                                          )
+                                        ]
                                       )
                                   )
                                 ],
@@ -333,62 +332,50 @@ class _BusinessExploreScreenState extends State<BusinessExploreScreen> with Sing
 
   Container buildCategoryWidget() {
     return Container(
-        height: 600,
-        margin: const EdgeInsets.only(top: 10.0, bottom: 10.0, left:5.0, right: 5.0),
-        decoration: BoxDecoration(
-        gradient: LinearGradient(
-        colors: [Colors.yellow[100], Colors.yellow[100]],
-        begin: FractionalOffset(0.0, 1.0),
-        end: FractionalOffset(0.5, 0.0),
-        stops: [0.5, 1.0],
-        tileMode: TileMode.clamp),
-        ),
-       // color: Colors.transparent, //TODO: Or Colors.black12
-       // padding: EdgeInsets.only(top: 32, bottom: 32, left: 16),
+                height: 600,
 
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-
-          children: <Widget>[
-            Text(
-                "Customer Transaction Summary",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontFamily: 'roboto',
-                  fontWeight: FontWeight.w600,
-                  letterSpacing: 1.0,
-                  color: Color(0xff171717),
-                  )
-            ),
-            SizedBox(height: 20,),
-            Expanded(
-                child: Container(
-                   // padding: EdgeInsets.symmetric(vertical: 2),
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                    height: double.infinity,
-                    child: ListView.builder(
-                        scrollDirection: Axis.vertical,
-                        itemCount: 6,
-                        itemBuilder: (BuildContext context, int index){
-                          BusinessData business = businesses[index];
-                          return InkWell(
-                            onTap: () => setSearchAndToggle( business.customerName),
-                            child: Container(
+                color: Colors.yellow[100], //TODO: Or Colors.black12
+                padding: EdgeInsets.only(top: 32, bottom: 32, left: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "Local Business Deals",
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 1.0,
+                        color: Color(0xff171717),
+                      )
+                    ),
+                    SizedBox(height: 20,),
+                    Expanded(
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 2),
+                        height: double.infinity,
+                        child: ListView.builder(
+                          scrollDirection: Axis.vertical,
+                          itemCount: 6,
+                          itemBuilder: (BuildContext context, int index){
+                            Category category = categories[index];
+                            return InkWell(
+                              onTap: () => setSearchAndToggle( category.categoryName),
+                              child: Container(
                                 width: 170,
                                 margin: index == 0 ? EdgeInsets.only(right: 16, top: 4, bottom: 4) : EdgeInsets.only(right: 16, top: 4, bottom: 4),
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: Colors.white,
-                                    boxShadow: [
-                                      BoxShadow(
-                                          color: Colors.transparent, //TODO: Colors.grey[200]
-                                          offset: Offset(0.0, 4.0),
-                                          blurRadius: 4
-                                      )
-                                    ]
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.white,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.transparent, //TODO: Colors.grey[200]
+                                      offset: Offset(0.0, 4.0),
+                                      blurRadius: 4
+                                    )
+                                  ]
                                 ),
                                 child: Stack(
-                                  /*  crossAxisAlignment: CrossAxisAlignment.start,*/
+                                /*  crossAxisAlignment: CrossAxisAlignment.start,*/
                                   children: <Widget>[
 /*                                    Expanded(
                                       child: Container(
@@ -402,7 +389,7 @@ class _BusinessExploreScreenState extends State<BusinessExploreScreen> with Sing
                                         )
                                       )
                                     ),*/
-                                    /* Container(
+                                   /* Container(
                                         width: double.infinity,
                                         child: ClipRRect(
                                           borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5), bottomRight: Radius.circular(5), bottomLeft: Radius.circular(5)),
@@ -411,170 +398,174 @@ class _BusinessExploreScreenState extends State<BusinessExploreScreen> with Sing
                                             fit: BoxFit.cover,
                                           ),
                                         )
-                                     ),*/
-                                    Container(
+                                    ),*/
+/*                                    Container(
                                       width:double.infinity,
-                                     // padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                                       height: 60,
                                       decoration: new BoxDecoration(
-                                        color: Colors.redAccent,
+                                        color: Colors.purple[200],
                                         gradient: new LinearGradient(
-                                          colors: [Colors.blue[100], Colors.blue[300]],
+                                          colors: [Colors.lightBlue[100], Colors.lightBlue[300]],
                                         ),
+                                      ),
+                                    ),*/
+                                    Padding(
+                                      padding: EdgeInsets.only(bottom: 5),
+                                      child: ListTile(
+                                        dense: true,
+                                        contentPadding: EdgeInsets.symmetric(horizontal: 0.0),
+                                        leading: Container(
+                                          width: 38.0,
+                                          height: 38.0,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.black45.withOpacity(0.1),
+                                                offset: Offset(0, 2),
+                                                blurRadius: 6.0,
+                                              ),
+                                            ],
+                                          ),
+                                          child: CircleAvatar(
+                                            child: ClipOval(
+                                              child: Image(
+                                                height: 40.0,
+                                                width: 40.0,
+                                                image: AssetImage("images/userIcon.png"),
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        title: Text(
+                                          "commentItem.author",
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        subtitle: Column(children: [
+                                          Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text("commentItem.comment")),
+                                          Align(
+                                              alignment: Alignment.centerLeft,
+                                              child:Row(
+                                                  mainAxisSize: MainAxisSize.min,
+                                                  children: <Widget>[
+                                                    Container(
+                                                        transform: Matrix4.translationValues(-14.0, 0.0, 0.0),
+                                                        child: IconButton(
+                                                          iconSize: 18,
+                                                          icon: Icon(
+                                                            Icons.favorite_border,
+                                                          ),
+                                                          color: Color(0xff0062ff),
+                                                          onPressed: () => print('Like comment'),
+                                                        )
+                                                    ),
+                                                    Container(
+                                                      transform: Matrix4.translationValues(-20.0, 0.0, 0.0),
+                                                      child: Text(
+                                                        "commentItem.numLikes.toString()",
+                                                        style: TextStyle(
+                                                            fontSize: 10,
+                                                            fontWeight: FontWeight.w500,
+                                                            color: Color(0xff171717)
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ])),
+                                        ]),
                                       ),
                                     ),
 
-                                    Container(
-                                        padding: EdgeInsets.symmetric(horizontal: 0, vertical: 20),
-                                        child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            mainAxisAlignment: MainAxisAlignment.start,
-                                            children: <Widget>[
-                                              Row(
-                                                children: <Widget>[
-                                                  Expanded (
-                                                    flex: 1,
-                                                    child:  Center(
-                                                        child : Text(
-
-                                                            business.customerName,
-                                                            style: TextStyle(
-                                                                fontSize: 16,
-                                                                fontFamily: 'roboto',
-                                                                fontWeight: FontWeight.bold,
-                                                                color: Colors.grey[800]
-                                                            )
-                                                        )
-
-                                                   ),
-
-                                                  ),
-                                                  Expanded (
-                                                    flex: 1,
-                                                    child:  Center(
-                                                        child : Text(
-
-                                                            business.phoneNum,
-                                                            style: TextStyle(
-                                                                fontSize: 16,
-                                                                fontFamily: 'roboto',
-                                                                fontWeight: FontWeight.bold,
-                                                                color: Colors.grey[800]
-                                                            )
-                                                        )
-
-                                                    ),
-
-                                                  ),
-                                                  Expanded (
-                                                    flex: 1,
-                                                    child:  Center(
-                                                        child : Text(
-
-                                                            business.amount,
-                                                            style: TextStyle(
-                                                                fontSize: 16,
-                                                                fontFamily: 'roboto',
-                                                                fontWeight: FontWeight.bold,
-                                                                color: Colors.grey[800]
-                                                            )
-                                                        )
-
-                                                    ),
-
-                                                  ),
-//
-                                                ],
-                                              )
-                                            ]
-                                        )
-                                    )
                                    /* Container(
                                       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
 
 
-                                      child: Center(
+                                       child: Center(
                                           child : Text(
 
-                                              business.customerName,
-                                              style: TextStyle(
-                                                  fontSize: 16,
-                                                  fontFamily: 'roboto',
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.grey[800]
-                                              )
-                                          )
+                                        category.categoryName,
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                            fontFamily: 'roboto',
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.blueGrey[700]
+                                        )
+                                      )
 
                                       ),
                                     )*/
                                   ],
                                 )
-                            ),
-                          );
-                        }
+                              ),
+                            );
+                          }
+                        )
+                      )
                     )
+                  ],
                 )
-            )
-          ],
-        )
-    );
+              );
   }
 
   Container buildExploreFilterWidget() {
     return Container(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        child: Row(
-            children: <Widget>[
-              InkWell(
-                onTap: () => setSearchAndToggle("Covid"),
-                child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-                    margin: EdgeInsets.only(right: 6),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50.0),
-                        color: Colors.white,
-                        border: Border.all(
-                          color: Colors.grey[300],
-                          width: 1.0,
-                        )
-                    ),
-                    child: Text("Covid")
-                ),
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: Row(
+        children: <Widget>[
+          InkWell(
+            onTap: () => setSearchAndToggle("Covid"),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+              margin: EdgeInsets.only(right: 6),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50.0),
+                color: Colors.white,
+                border: Border.all(
+                  color: Colors.grey[300],
+                  width: 1.0,
+                )
               ),
-              InkWell(
-                onTap: () => setSearchAndToggle("Park"),
-                child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-                    margin: EdgeInsets.only(right: 6),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50.0),
-                        color: Colors.white,
-                        border: Border.all(
-                          color: Colors.grey[300],
-                          width: 1.0,
-                        )
-                    ),
-                    child: Text("Parks")
+              child: Text("Covid")
+            ),
+          ),
+          InkWell(
+            onTap: () => setSearchAndToggle("Park"),
+            child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                margin: EdgeInsets.only(right: 6),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50.0),
+                    color: Colors.white,
+                    border: Border.all(
+                      color: Colors.grey[300],
+                      width: 1.0,
+                    )
                 ),
-              ),
-              InkWell(
-                onTap: () => setSearchAndToggle("Forest Fires"),
-                child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-                    margin: EdgeInsets.only(right: 6),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50.0),
-                        color: Colors.white,
-                        border: Border.all(
-                          color: Colors.grey[300],
-                          width: 1.0,
-                        )
-                    ),
-                    child: Text("Forest Fires")
+                child: Text("Parks")
+            ),
+          ),
+          InkWell(
+            onTap: () => setSearchAndToggle("Forest Fires"),
+            child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                margin: EdgeInsets.only(right: 6),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50.0),
+                    color: Colors.white,
+                    border: Border.all(
+                      color: Colors.grey[300],
+                      width: 1.0,
+                    )
                 ),
-              )
-            ]
-        )
+                child: Text("Forest Fires")
+            ),
+          )
+        ]
+      )
     );
   }
 
