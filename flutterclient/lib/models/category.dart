@@ -23,7 +23,7 @@ List<Category> categories = [
       c: 0xFF42A5F5
   ),
   Category(
-      imageUrl: "images/parksCategory.jpg",
+      imageUrl: "images/spices-of-india.jpg",
       categoryName: "Indian Groceries(458 reward points)",
       id:"3",
       c: 0xFF42A5F5

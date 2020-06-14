@@ -181,7 +181,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
                                     style: TextStyle(
                                       letterSpacing: 1,
                                       color: Colors.blue,
-                                      fontSize: 13,
+                                      fontSize: 15,
                                       fontWeight: FontWeight.bold,
                                       fontFamily: 'Roboto Mono'
                                     )
@@ -292,7 +292,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
                                     style: TextStyle(
                                         letterSpacing: 1,
                                         color: Colors.green,
-                                        fontSize: 13,
+                                        fontSize: 15,
                                         fontWeight: FontWeight.bold,
                                         fontFamily: 'roboto'
                                     )
