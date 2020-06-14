@@ -1,6 +1,7 @@
 import 'package:flutterclient/animations/fade_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterclient/screens/home_screens.dart';
+import 'package:flutterclient/screens/business_home_screen.dart';
 import 'package:page_transition/page_transition.dart';
 
 class LoginPage extends StatelessWidget {
@@ -82,9 +83,20 @@ return Scaffold(
  */
 
 class loginContent extends StatelessWidget {
-  const loginContent({
+  TextEditingController phoneController = new TextEditingController();
+
+   loginContent({
     Key key,
   }) : super(key: key);
+
+
+/*  void _navigateToHomeScreen() {
+    if(phoneController.text.isEmpty || phoneController.text.contains('123')) {
+      Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: HomeScreen()));
+    } else {
+      Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: HomeScreen()));
+    }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -108,6 +120,7 @@ class loginContent extends StatelessWidget {
                     border: Border(bottom: BorderSide(color: Colors.grey[300]))
                 ),
                 child: TextField(
+                  controller: phoneController,
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       hintStyle: TextStyle(color: Colors.grey.withOpacity(.8)),
@@ -137,7 +150,18 @@ class loginContent extends StatelessWidget {
             child:
             FadeAnimation(1.8, Center(
               child: RaisedButton(
-                onPressed: () {Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: HomeScreen()));},
+                onPressed: () {
+                  if (phoneController.text.isEmpty ||
+                      phoneController.text.contains('123')) {
+                    Navigator.push(context, PageTransition(
+                        type: PageTransitionType.fade, child: HomeScreen()));
+                  } else {
+                    Navigator.push(context, PageTransition(
+                        type: PageTransitionType.fade, child: BusinessHomeScreen()));
+                  };
+                },
+                 // Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: HomeScreen()));},
+                //onPressed: _navigateToHomeScreen,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18.0),
                     side: BorderSide(color: Color(0xff0062ff))
