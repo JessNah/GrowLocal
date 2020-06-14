@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterclient/screens/business_analytical_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutterclient/screens/business_explore_screen.dart';
 
@@ -27,8 +28,7 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> with SingleTick
                 controller: _tabController,
                 children: <Widget>[
                   SingleChildScrollView(child: BusinessExploreScreen()),
-                  Container(),
-/*            Container(),*/
+                  SingleChildScrollView(child: BusinessAnalyticalScreen()),
                   Container(),
                 ]
             ),
@@ -66,22 +66,15 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> with SingleTick
                         FontAwesomeIcons.rocket,
                         size: 25,
                       ),
-                      text: "TRANSACTIONS",
+                      text: "CUSTOMERS",
                     ),
                     Tab(
                       icon: Icon(
                         FontAwesomeIcons.lightbulb,
                         size: 25,
                       ),
-                      text: "DEALS",
+                      text: "ANALYTICS",
                     ),
-/*              Tab(
-                icon: Icon(
-                  Icons.favorite_border,
-                  size: 25,
-                ),
-                text: "COLLECTION",
-              ),*/
                     Tab(
                       icon: Icon(
                         Icons.person_outline,
