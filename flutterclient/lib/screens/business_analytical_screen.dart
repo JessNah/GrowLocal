@@ -57,160 +57,172 @@ class _BusinessAnalyticalScreenState extends State<BusinessAnalyticalScreen> wit
     //children: [Text('Chart Viewer')],
   );
 
+  bool _isSalesByItem = true;
+
   @override
   Widget build(BuildContext context) {
+    if(_isSalesByItem)
+      chartContainer = SimpleBarChart.withSampleData();
+    else
+      chartContainer = WeeklyBarChart.withSampleData();
     return SingleChildScrollView(
-          child: Column(
+          child: Container(
+            color: Colors.yellow[100],
+            child: Column(
 
-            children: <Widget>[
+              children: <Widget>[
 
-              Padding(
-                padding: EdgeInsets.only(top: 10, bottom: 10),
-                child: Text('Analytics',
-                  style: TextStyle(
-                    fontSize: 35,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.0,
-                    color: Colors.deepOrangeAccent,
-                  ),
-                )
-              ),
-              Container(
-                  padding: EdgeInsets.only(top: 2, bottom: 2, left: 10),
-                  alignment: Alignment.centerLeft,
-                  child: Text('Sales Insights',
+                Padding(
+                  padding: EdgeInsets.only(top: 10, bottom: 10),
+                  child: Text('Analytics',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 35,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1.0,
-                      color: Colors.blue,
+                      color: Colors.deepOrangeAccent,
                     ),
                   )
-              ),
+                ),
+                Container(
+                    padding: EdgeInsets.only(top: 2, bottom: 18, left: 10),
+                    alignment: Alignment.centerLeft,
+                    child: Text('Sales Insights',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.0,
+                        color: Colors.blue,
+                      ),
+                    )
+                ),
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  RaisedButton(
-                    child: Text('Sales By Item'),
-                    color: Colors.lightBlue[200],
-                    onPressed: () {
-                      setState(() {
-                        chartContainer = SimpleBarChart.withSampleData();
-                      });
-                    },
-                  ),
-                  RaisedButton(
-                    child: Text('Sales By Week'),
-                    color: Colors.lightBlue[200],
-                    onPressed: () {
-                      setState(() {
-                        chartContainer = WeeklyBarChart.withSampleData();
-                      });
-                    },
-                  )
-                ],
-              ),
-              Container(
-                height: 220,
-                padding: EdgeInsets.only(left: 15, right: 05),
-                child: chartContainer,
-              ),
-              Container(
-                  padding: EdgeInsets.only(top: 2, bottom: 2, left: 10),
-                  alignment: Alignment.centerLeft,
-                  child: Text('Deals recommendations for this week',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 1.0,
-                      color: Colors.blue,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    RaisedButton(
+                      child: Text('Sales By Item'),
+                      textColor: _isSalesByItem ? Colors.black : Colors.blueGrey,
+                      color: _isSalesByItem ? Colors.lightBlue[200] : Colors.grey[300],
+                      onPressed: () {
+                        setState(() {
+                          _isSalesByItem = true;
+                        });
+                      },
                     ),
-                  )
-              ),
-              /*child:*/ Container(
-                  padding: EdgeInsets.symmetric(vertical: 2),
-                  height:150,
-                  child: ListView.builder(
-                      scrollDirection: Axis.vertical,
-                      itemCount: categories[2].r.length,
-                      itemBuilder: (BuildContext context, int index){
-                        Deals r = categories[2].r[index];
-                        return InkWell(
-                          //onTap: () => setSearchAndToggle( category.categoryName),
-                            child:
-                            Container(
-                                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                                child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: <Widget>[
-                                      Row(
-                                        children: <Widget>[
-                                          /*Expanded (
-                                              flex: 1,
-                                              child:  (*/
-                                          SizedBox(width: 10),
+                    RaisedButton(
+                      child: Text('Sales By Week'),
+                      textColor: !_isSalesByItem ? Colors.black : Colors.blueGrey,
+                      color: !_isSalesByItem ? Colors.lightBlue[200] : Colors.grey[300],
+                      onPressed: () {
+                        setState(() {
+                          _isSalesByItem = false;
+                        });
+                      },
+                    )
+                  ],
+                ),
+                Container(
+                  height: 220,
+                  margin: EdgeInsets.only(top: 12, bottom: 12),
+                  padding: EdgeInsets.only(left: 15, right: 05),
+                  child: chartContainer,
+                ),
+                Container(
+                    padding: EdgeInsets.only(top: 8, bottom: 8, left: 10),
+                    alignment: Alignment.centerLeft,
+                    child: Text('Deals recommendations for this week',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.0,
+                        color: Colors.blue,
+                      ),
+                    )
+                ),
+                /*child:*/ Container(
+                    padding: EdgeInsets.symmetric(vertical: 2),
+                    height:150,
+                    child: ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        itemCount: categories[2].r.length,
+                        itemBuilder: (BuildContext context, int index){
+                          Deals r = categories[2].r[index];
+                          return InkWell(
+                            //onTap: () => setSearchAndToggle( category.categoryName),
+                              child:
+                              Container(
+                                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                  child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        Row(
+                                          children: <Widget>[
+                                            /*Expanded (
+                                                flex: 1,
+                                                child:  (*/
+                                            SizedBox(width: 10),
 
-                                          Text(
-                                              r.dealData,
-                                              style: TextStyle(
-                                                  fontSize: 12,
-                                                  fontFamily: 'roboto',
-                                                  fontWeight: FontWeight.normal,
-                                                  color: Colors.grey[800]
-                                              )
-                                          ),
-
-                                          /*),
-
-                                            ),*/
-                                          /*Expanded (
-                                              flex: 1,
-                                              child:  Center(
-                                                  child : Text(
-
-                                                      tr.amount,
-                                                      style: TextStyle(
-                                                          fontSize: 16,
-                                                          fontFamily: 'roboto',
-                                                          fontWeight: FontWeight.bold,
-                                                          color: Colors.grey[800]
-                                                      )
-                                                  )
-
-                                              ),
-
+                                            Text(
+                                                r.dealData,
+                                                style: TextStyle(
+                                                    fontSize: 12,
+                                                    fontFamily: 'roboto',
+                                                    fontWeight: FontWeight.normal,
+                                                    color: Colors.grey[800]
+                                                )
                                             ),
-                                            Expanded (
-                                              flex: 1,
-                                              child:  Center(
-                                                  child : Text(
 
-                                                      tr.rewards,
-                                                      style: TextStyle(
-                                                          fontSize: 16,
-                                                          fontFamily: 'roboto',
-                                                          fontWeight: FontWeight.bold,
-                                                          color: Colors.grey[800]
-                                                      )
-                                                  )
+                                            /*),
+
+                                              ),*/
+                                            /*Expanded (
+                                                flex: 1,
+                                                child:  Center(
+                                                    child : Text(
+
+                                                        tr.amount,
+                                                        style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontFamily: 'roboto',
+                                                            fontWeight: FontWeight.bold,
+                                                            color: Colors.grey[800]
+                                                        )
+                                                    )
+
+                                                ),
 
                                               ),
+                                              Expanded (
+                                                flex: 1,
+                                                child:  Center(
+                                                    child : Text(
 
-                                            ),*/
+                                                        tr.rewards,
+                                                        style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontFamily: 'roboto',
+                                                            fontWeight: FontWeight.bold,
+                                                            color: Colors.grey[800]
+                                                        )
+                                                    )
+
+                                                ),
+
+                                              ),*/
 //
-                                        ],
-                                      )
-                                    ]
-                                )
-                            )
+                                          ],
+                                        )
+                                      ]
+                                  )
+                              )
 
-                        );
-                      }
-                  )
-              )
-            ],
+                          );
+                        }
+                    )
+                )
+              ],
+            ),
           ),
         );
 
