@@ -103,7 +103,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
         .width;
     return Container(
       height: 950,
-      color: Colors.yellow[100],
+      color: Colors.grey[100],
       child: Column(
           children: (searchText == "" ? submissions : ((submissions.where((i) => i.id.contains(searchText.toLowerCase()) || i.categoryName.toLowerCase().contains(searchText.toLowerCase())))))
               .map((submission) => Container(
@@ -221,7 +221,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
 
                                                             tr.date,
                                                             style: TextStyle(
-                                                                fontSize: 12,
+                                                                fontSize: 14,
                                                                 fontFamily: 'roboto',
                                                                 fontWeight: FontWeight.normal,
                                                                 color: Colors.grey[800]
@@ -238,7 +238,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
 
                                                           tr.amount,
                                                           style: TextStyle(
-                                                              fontSize: 12,
+                                                              fontSize: 14,
                                                               fontFamily: 'roboto',
                                                               fontWeight: FontWeight.normal,
                                                               color: Colors.grey[800]
@@ -255,7 +255,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
 
                                                           tr.rewards,
                                                           style: TextStyle(
-                                                              fontSize: 12,
+                                                              fontSize: 14,
                                                               fontFamily: 'roboto',
                                                               fontWeight: FontWeight.normal,
                                                               color: Colors.grey[800]
@@ -333,7 +333,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
                                             Text(
                                                       deal.dealData,
                                                       style: TextStyle(
-                                                          fontSize: 12,
+                                                          fontSize: 14,
                                                           fontFamily: 'roboto',
                                                           fontWeight: FontWeight.normal,
                                                           color: Colors.grey[800]

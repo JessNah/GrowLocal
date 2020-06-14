@@ -52,10 +52,11 @@ class _BusinessAnalyticalScreenState extends State<BusinessAnalyticalScreen> wit
     topSubmissions = [];
   }*/
 
-  Widget chartContainer = Column(
+  /*Widget chartContainer = Column(
     mainAxisAlignment: MainAxisAlignment.center,
     //children: [Text('Chart Viewer')],
-  );
+  );*/
+  Widget chartContainer = SimpleBarChart.withSampleData();
 
   @override
   Widget build(BuildContext context) {

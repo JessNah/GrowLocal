@@ -372,7 +372,7 @@ class _BusinessExploreScreenState extends State<BusinessExploreScreen> with Sing
                         itemBuilder: (BuildContext context, int index){
                           BusinessData business = businesses[index];
                           return InkWell(
-                            onTap: () => setSearchAndToggle( business.customerName),
+                    //        onTap: () => setSearchAndToggle( business.customerName),
                             child: Container(
                                 width: 170,
                                 margin: index == 0 ? EdgeInsets.only(right: 16, top: 4, bottom: 4) : EdgeInsets.only(right: 16, top: 4, bottom: 4),
@@ -390,28 +390,6 @@ class _BusinessExploreScreenState extends State<BusinessExploreScreen> with Sing
                                 child: Stack(
                                   /*  crossAxisAlignment: CrossAxisAlignment.start,*/
                                   children: <Widget>[
-/*                                    Expanded(
-                                      child: Container(
-                                        width: double.infinity,
-                                        child: ClipRRect(
-                                          borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5), bottomRight: Radius.circular(5), bottomLeft: Radius.circular(5)),
-                                            child: Image(
-                                              image: AssetImage(category.imageUrl),
-                                              fit: BoxFit.cover,
-                                            ),
-                                        )
-                                      )
-                                    ),*/
-                                    /* Container(
-                                        width: double.infinity,
-                                        child: ClipRRect(
-                                          borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5), bottomRight: Radius.circular(5), bottomLeft: Radius.circular(5)),
-                                          child: Image(
-                                            image: AssetImage(category.imageUrl),
-                                            fit: BoxFit.cover,
-                                          ),
-                                        )
-                                     ),*/
                                     Container(
                                       width:double.infinity,
                                      // padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),

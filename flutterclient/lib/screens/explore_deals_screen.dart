@@ -334,7 +334,7 @@ class _ExploreDealsScreenState extends State<ExploreDealsScreen> with SingleTick
   Container buildCategoryWidget() {
     return Container(
                 height: 600,
-                color: Colors.yellow[100], //TODO: Or Colors.black12
+                color: Colors.grey[100], //TODO: Or Colors.black12
                 padding: EdgeInsets.only(top: 32, bottom: 32, left: 16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

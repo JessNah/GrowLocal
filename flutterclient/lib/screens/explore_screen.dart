@@ -9,6 +9,7 @@ import 'package:flutterclient/api/api_problems.dart';
 import 'package:flutterclient/utilities/constants.dart';
 import 'package:flutterclient/utilities/utility_helper.dart';
 import 'package:flutterclient/screens/project_summary_screen.dart';
+import 'package:flutter_gradients/flutter_gradients.dart';
 
 class ExploreScreen extends StatefulWidget {
   @override
@@ -334,24 +335,36 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
     return Container(
                 height: 600,
 
-                color: Colors.yellow[100], //TODO: Or Colors.black12
-                padding: EdgeInsets.only(top: 32, bottom: 32, left: 16),
+                color: Colors.grey[100], //TODO: Or Colors.black12
+                padding: EdgeInsets.only(top: 32, bottom: 32, left: 16, right:16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      "Local businesses",
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 1.0,
-                        color: Color(0xff171717),
-                      )
-                    ),
+                  Row(
+                    children: [
+                      Icon(
+                      Icons.business,
+                      size: 60,
+                      color: Color(0xff0062ff),
+                ),
+                      SizedBox(width:10),
+                      Text(
+                          "Local businesses",
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 1.0,
+                            color: Color(0xff171717),
+                          )
+                      ),
+                    ],
+                  ),
+
+
                     SizedBox(height: 20,),
                     Expanded(
                       child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 2),
+                        padding: EdgeInsets.symmetric(vertical: 2,horizontal:2),
                         height: double.infinity,
                         child: ListView.builder(
                           scrollDirection: Axis.vertical,
@@ -360,76 +373,25 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                             Category category = categories[index];
                             return InkWell(
                               onTap: () => setSearchAndToggle( category.categoryName),
-                              child: Container(
-                                width: 170,
-                                margin: index == 0 ? EdgeInsets.only(right: 16, top: 4, bottom: 4) : EdgeInsets.only(right: 16, top: 4, bottom: 4),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.transparent, //TODO: Colors.grey[200]
-                                      offset: Offset(0.0, 4.0),
-                                      blurRadius: 4
-                                    )
-                                  ]
+                              child: Card(
+                                elevation: 3.0,
+                                 shape: RoundedRectangleBorder(side: BorderSide(width: 0.2),borderRadius: BorderRadius.circular(10)),
+
+                                 child : Padding(
+                                   padding: const EdgeInsets.all(8.0),
+                                   child: Text(
+
+                               category.categoryName,
+                               style: TextStyle(
+                                   fontSize: 18,
+                                     fontFamily: 'roboto',
+                                   fontWeight: FontWeight.bold,
+                                   color: Colors.blueGrey[700]
+                               )
                                 ),
-                                child: Stack(
-                                /*  crossAxisAlignment: CrossAxisAlignment.start,*/
-                                  children: <Widget>[
-/*                                    Expanded(
-                                      child: Container(
-                                        width: double.infinity,
-                                        child: ClipRRect(
-                                          borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5), bottomRight: Radius.circular(5), bottomLeft: Radius.circular(5)),
-                                            child: Image(
-                                              image: AssetImage(category.imageUrl),
-                                              fit: BoxFit.cover,
-                                            ),
-                                        )
-                                      )
-                                    ),*/
-                                   /* Container(
-                                        width: double.infinity,
-                                        child: ClipRRect(
-                                          borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5), bottomRight: Radius.circular(5), bottomLeft: Radius.circular(5)),
-                                          child: Image(
-                                            image: AssetImage(category.imageUrl),
-                                            fit: BoxFit.cover,
-                                          ),
-                                        )
-                                    ),*/
-                                    Container(
-                                      width:double.infinity,
-                                      height: 60,
-                                      decoration: new BoxDecoration(
-                                        color: Colors.purple[200],
-                                        gradient: new LinearGradient(
-                                          colors: [Colors.lightBlue[100], Colors.lightBlue[300]],
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                 )
 
-
-                                       child: Center(
-                                          child : Text(
-
-                                        category.categoryName,
-                                        style: TextStyle(
-                                          fontSize: 16,
-                                            fontFamily: 'roboto',
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.blueGrey[700]
-                                        )
-                                      )
-
-                                      ),
-                                    )
-                                  ],
-                                )
-                              ),
+                                ),
                             );
                           }
                         )
