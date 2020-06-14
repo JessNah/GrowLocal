@@ -65,6 +65,7 @@ class _ProjectsPageWidget extends State<ProjectsPageWidget> with SingleTickerPro
 
           Container( //TODO: use Expanded?
               height: 1000,
+              color: Colors.yellow[100],
               child: ListView(
                 children: <Widget>[
                   SizedBox(height: 15,),

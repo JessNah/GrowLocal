@@ -5,18 +5,20 @@ import 'deals.dart';
 class Category{
   String imageUrl;
   String categoryName;
+  String subText;
   String id;
   int c;
   List<Deals> d;
   List<Deals> r;
 
-  Category({this.imageUrl, this.categoryName, this.id, this.c, this.d, this.r});
+  Category({this.imageUrl, this.categoryName, this.subText, this.id, this.c, this.d, this.r});
 }
 
 List<Category> categories = [
   Category(
     imageUrl: "images/restaurantsCategory.jpg",
     categoryName: "Jasmine Indian Restaurant\n (258 reward points)",
+    subText: "10-15 min\n2 new deals",
     id:"1",
     c: 0xFF42A5F5,
     d: [
@@ -63,6 +65,7 @@ List<Category> categories = [
   Category(
       imageUrl: "images/groceryCategory.jpg",
       categoryName: "Asian Mart\n (2400 reward points)",
+      subText: "25-35 min\n14 new deals",
       id:"2",
       c: 0xFF42A5F5,
       d: [
@@ -109,6 +112,7 @@ List<Category> categories = [
   Category(
       imageUrl: "images/spices-of-india.jpg",
       categoryName: "Indian Groceries\n(458 reward points)",
+      subText: "5-15 min\n7 new deals",
       id:"3",
       c: 0xFF42A5F5,
       d: [
@@ -153,8 +157,9 @@ List<Category> categories = [
       ]
   ),
   Category(
-      imageUrl: "images/restaurantProblem.jpg",
+      imageUrl: "images/thai.jpg",
       categoryName: "Thai Restaurant\n (100 reward points)",
+      subText: "10-15 min\n1 new deal",
       id:"4",
       c: 0xFF42A5F5,
       d: [
@@ -199,8 +204,9 @@ List<Category> categories = [
       ]
   ),
   Category(
-      imageUrl: "images/restaurantProblem.jpg",
+      imageUrl: "images/pizza.jpg",
       categoryName: "Alan's Pizza \n(400 reward points)",
+      subText: "20-25 min\n5 new deals",
       id:"5",
       c: 0xFF42A5F5,
       d: [
@@ -245,8 +251,9 @@ List<Category> categories = [
       ]
   ),
   Category(
-      imageUrl: "images/restaurantProblem.jpg",
+      imageUrl: "images/vegan.jpg",
       categoryName: "Vegan Restaurant\n (1200 reward points)",
+      subText: "10-15 min\n6 new deals",
       id:"6",
       c: 0xFF42A5F5,
       d: [

@@ -82,6 +82,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
         )
     );
     return Container(
+        color: Colors.yellow[100],
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center, //TODO: maybe remove
             children: <Widget>[
@@ -365,7 +366,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                 margin: index == 0 ? EdgeInsets.only(right: 16, top: 4, bottom: 4) : EdgeInsets.only(right: 16, top: 4, bottom: 4),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
-                                  color: Colors.white,
+                                    color: Colors.transparent,
                                   boxShadow: [
                                     BoxShadow(
                                       color: Colors.transparent, //TODO: Colors.grey[200]
@@ -399,34 +400,56 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                           ),
                                         )
                                     ),*/
-                                    Container(
-                                      width:double.infinity,
-                                      height: 60,
-                                      decoration: new BoxDecoration(
-                                        color: Colors.purple[200],
-                                        gradient: new LinearGradient(
-                                          colors: [Colors.lightBlue[100], Colors.lightBlue[300]],
+                                Column(
+                                children: [
+                                Padding(
+                                padding: EdgeInsets.only(bottom: 5),
+                                child: ListTile(
+                                    contentPadding: EdgeInsets.symmetric(horizontal: 0.0),
+                                    leading: Container(
+                                      width: 44.0,
+                                      height: 44.0,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black45.withOpacity(0.1),
+                                            offset: Offset(0, 2),
+                                            blurRadius: 6.0,
+                                          ),
+                                        ],
+                                      ),
+                                      child: CircleAvatar(
+                                        child: ClipRRect(
+                                          child: Image(
+                                            height: 45.0,
+                                            width: 45.0,
+                                            image: AssetImage(category.imageUrl),
+                                            fit: BoxFit.cover,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                    Container(
-                                      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-
-
-                                       child: Center(
-                                          child : Text(
-
-                                        category.categoryName,
-                                        style: TextStyle(
-                                          fontSize: 16,
-                                            fontFamily: 'roboto',
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.blueGrey[700]
-                                        )
-                                      )
-
+                                    title: Text(
+                                      category.categoryName,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
                                       ),
-                                    )
+                                    ),
+                                  trailing: Text(
+                                    category.subText,
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                      color: Colors.redAccent,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 13,
+
+                                    ),
+                                  ),
+                              ),
+                            ),
+                            ],
+                            )
                                   ],
                                 )
                               ),

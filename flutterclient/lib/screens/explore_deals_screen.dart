@@ -83,6 +83,7 @@ class _ExploreDealsScreenState extends State<ExploreDealsScreen> with SingleTick
         )
     );
     return Container(
+        color: Colors.yellow[100],
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center, //TODO: maybe remove
             children: <Widget>[
