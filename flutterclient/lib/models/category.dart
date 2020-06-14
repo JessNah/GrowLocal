@@ -21,22 +21,22 @@ List<Category> categories = [
     c: 0xFF42A5F5,
     d: [
       Deals(
-        dealData: "Get 2x rewards on oil by 30/Jun/2020",
+        dealData: "Get 2x rewards on chicken biryani by 30/Jun/2020",
       ),
       Deals(
-        dealData: "Get 1.5x rewards on pasta by 30/Jun/2020",
+        dealData: "Get 1.5x rewards on noodles by 30/Jun/2020",
       ),
       Deals(
-        dealData: "Get 1.5 rewards on rice by 30/Jun/2020",
+        dealData: "Get 1.5 rewards on butter chicken by 30/Jun/2020",
       ),
       Deals(
-        dealData: "Get 1.2x rewards on toor dal by 30/Jun/2020",
+        dealData: "Get 1.2x rewards on paneer curry by 30/Jun/2020",
       ),
       Deals(
-        dealData: "Get 5x rewards on paneer by 30/Jun/2020",
+        dealData: "Get 5x rewards on mixed veg by 30/Jun/2020",
       ),
       Deals(
-        dealData: "Get 5% off on all flour by 30/Jun/2020",
+        dealData: "Get 5% off on all veg pakoda by 30/Jun/2020",
       )
     ]
   ),
@@ -79,7 +79,7 @@ List<Category> categories = [
     dealData: "Get 1.5x rewards on pasta by 30/Jun/2020",
   ),
   Deals(
-    dealData: "Get 1.5 rewards on rice by 30/Jun/2020",
+    dealData: "Get 2.5x rewards on rice by 30/Jun/2020",
   ),
   Deals(
     dealData: "Get 1.2x rewards on toor dal by 30/Jun/2020",
@@ -99,22 +99,22 @@ List<Category> categories = [
       c: 0xFF42A5F5,
       d: [
         Deals(
-          dealData: "Get 2x rewards on oil by 30/Jun/2020",
+          dealData: "Get 2x rewards on noodles by 30/Jun/2020",
         ),
         Deals(
-          dealData: "Get 1.5x rewards on pasta by 30/Jun/2020",
+          dealData: "Get 1.5x rewards on green curry by 30/Jun/2020",
         ),
         Deals(
-          dealData: "Get 1.5 rewards on rice by 30/Jun/2020",
+          dealData: "Get 2.5x rewards on red curry by 30/Jun/2020",
         ),
         Deals(
-          dealData: "Get 1.2x rewards on toor dal by 30/Jun/2020",
+          dealData: "Get 1.2x rewards on basil noodles by 30/Jun/2020",
         ),
         Deals(
-          dealData: "Get 5x rewards on paneer by 30/Jun/2020",
+          dealData: "Get 5x rewards on fried rice by 30/Jun/2020",
         ),
         Deals(
-          dealData: "Get 5% off on all flour by 30/Jun/2020",
+          dealData: "Get 5% off on lunch  by 30/Jun/2020",
         )
       ]
   ),
@@ -125,22 +125,22 @@ List<Category> categories = [
       c: 0xFF42A5F5,
       d: [
         Deals(
-          dealData: "Get 2x rewards on oil by 30/Jun/2020",
+          dealData: "Get 2x rewards on bbq pizza by 30/Jun/2020",
         ),
         Deals(
-          dealData: "Get 1.5x rewards on pasta by 30/Jun/2020",
+          dealData: "Get 1.5x rewards on veg pizza by 30/Jun/2020",
         ),
         Deals(
-          dealData: "Get 1.5 rewards on rice by 30/Jun/2020",
+          dealData: "Get 2x rewards on pasta by 30/Jun/2020",
         ),
         Deals(
-          dealData: "Get 1.2x rewards on toor dal by 30/Jun/2020",
+          dealData: "Get 1.2x rewards on mushroom pizza by 30/Jun/2020",
         ),
         Deals(
-          dealData: "Get 5x rewards on paneer by 30/Jun/2020",
+          dealData: "Get 5x rewards on ham pizza by 30/Jun/2020",
         ),
         Deals(
-          dealData: "Get 5% off on all flour by 30/Jun/2020",
+          dealData: "Get 5% off on all chicken supreme by 30/Jun/2020",
         )
       ]
   ),
@@ -151,22 +151,22 @@ List<Category> categories = [
       c: 0xFF42A5F5,
       d: [
         Deals(
-          dealData: "Get 2x rewards on oil by 30/Jun/2020",
+          dealData: "Get 2x rewards on salad by 30/Jun/2020",
         ),
         Deals(
-          dealData: "Get 1.5x rewards on pasta by 30/Jun/2020",
+          dealData: "Get 1.5x rewards on soup by 30/Jun/2020",
         ),
         Deals(
-          dealData: "Get 1.5 rewards on rice by 30/Jun/2020",
+          dealData: "Get 1.5 rewards on mix veg curry by 30/Jun/2020",
         ),
         Deals(
-          dealData: "Get 1.2x rewards on toor dal by 30/Jun/2020",
+          dealData: "Get 1.2x rewards on beans curry by 30/Jun/2020",
         ),
         Deals(
-          dealData: "Get 5x rewards on paneer by 30/Jun/2020",
+          dealData: "Get 5x rewards on paneer curry by 30/Jun/2020",
         ),
         Deals(
-          dealData: "Get 5% off on all flour by 30/Jun/2020",
+          dealData: "Get 5% off on all early bird dinner (5:30-6:30pm) by 30/Jun/2020",
         )
       ]
   )
