@@ -83,6 +83,7 @@ class _BusinessExploreScreenState extends State<BusinessExploreScreen> with Sing
         )
     );
     return Container(
+        color: Colors.yellow[100],
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center, //TODO: maybe remove
             children: <Widget>[
@@ -351,7 +352,7 @@ class _BusinessExploreScreenState extends State<BusinessExploreScreen> with Sing
 
           children: <Widget>[
             Text(
-                "Customer Transaction Summary",
+                "  Customer Transaction Summary",
                 style: TextStyle(
                   fontSize: 18,
                   fontFamily: 'roboto',
