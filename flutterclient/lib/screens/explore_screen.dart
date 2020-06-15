@@ -381,16 +381,26 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
 
                                  child : Padding(
                                    padding: const EdgeInsets.all(8.0),
-                                   child: Text(
-
-                               category.categoryName,
-                               style: TextStyle(
-                                   fontSize: 18,
-                                     fontFamily: 'roboto',
-                                   fontWeight: FontWeight.bold,
-                                   color: Colors.blueGrey[700]
-                               )
-                                ),
+                                   child: Column(
+                                     children: [
+                                       Text(
+                                        category.categoryName,
+                                        style: TextStyle( fontSize: 18,
+                                         fontFamily: 'roboto',
+                                         fontWeight: FontWeight.bold,
+                                         color: Colors.blueGrey[700]
+                                       )
+                                       ),
+                                       Text(
+                                           category.points,
+                                           style: TextStyle( fontSize: 12,
+                                               fontFamily: 'roboto',
+                                               fontWeight: FontWeight.bold,
+                                               color: Colors.blueGrey[700]
+                                           )
+                                       )
+                                     ],
+                                   ),
                                  )
 
                                 ),
