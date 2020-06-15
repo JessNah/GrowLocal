@@ -83,7 +83,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
         )
     );
     return Container(
-        color: Colors.yellow[100],
+        color : Colors.white,
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center, //TODO: maybe remove
             children: <Widget>[
@@ -120,29 +120,98 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                   height: 550.0,
                   child: ListView(
                       children: <Widget>[
-                     //   buildExploreFilterWidget(),
-/*                        Container(
-                          height: 50,
-                          padding: EdgeInsets.only(top: 24, left: 16),
-                          child:
-                          Text(
-                            "Favorite Businesses",
-                            style: TextStyle(
-                              fontSize: 28,
-                              fontWeight: FontWeight.normal,
-                              fontFamily: 'roboto',
-                              foreground: Paint()..shader = linearGradient,
-                            ),
-                          ),
-                        ),*/
                         buildCategoryWidget(),
-                       // TopRatedWidget(setTopSubmissions),
-                       // ProblemsWidget(setTopProblems),
-                       // buildFooter(),
                       ]
                   )
               )
             ]
+        )
+    );
+  }
+
+  Container buildCategoryWidget() {
+    return Container(
+        height: 600,
+        color: Colors.grey[100], //TODO: Or Colors.black12
+        padding: EdgeInsets.only(top: 32, bottom: 32, left: 16, right:16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Row(
+              children: [
+                Icon(
+                  Icons.business,
+                  size: 60,
+                  color: Color(0xff0062ff),
+                ),
+                SizedBox(width:10),
+                Text(
+                    "Local businesses",
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 1.0,
+                      color: Color(0xff171717),
+                    )
+                ),
+              ],
+            ),
+            SizedBox(height: 20,),
+            Expanded(
+                child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 2,horizontal:2),
+                    height: double.infinity,
+                    child: ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        itemCount: categories.length,
+                        itemBuilder: (BuildContext context, int index){
+                          Category category = categories[index];
+                          return InkWell(
+                            onTap: () => setSearchAndToggle( category.categoryName),
+
+                            child: Card(
+                                elevation: 3.0,
+                                shape: RoundedRectangleBorder(side: BorderSide(width: 0.2),borderRadius: BorderRadius.circular(10)),
+
+                                child : Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                          category.categoryName,
+                                          style: TextStyle( fontSize: 18,
+                                              fontFamily: 'roboto',
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.blueGrey[700]
+                                          )
+                                      ),
+                                      Text(
+                                          category.points,
+                                          style: TextStyle( fontSize: 12,
+                                              fontFamily: 'roboto',
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.blueGrey[700]
+                                          )
+                                      ),
+                                      Text(
+                                          category.subText,
+                                          style: TextStyle( fontSize: 12,
+                                              fontFamily: 'roboto',
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.blueGrey[700]
+                                          )
+                                      )
+                                    ],
+                                  ),
+                                )
+                            ),
+
+                          );
+                        }
+                    )
+                )
+            )
+          ],
         )
     );
   }
@@ -330,89 +399,6 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
           ],
         )
     );
-  }
-
-  Container buildCategoryWidget() {
-    return Container(
-                height: 600,
-
-                color: Colors.grey[100], //TODO: Or Colors.black12
-                padding: EdgeInsets.only(top: 32, bottom: 32, left: 16, right:16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                  Row(
-                    children: [
-                      Icon(
-                      Icons.business,
-                      size: 60,
-                      color: Color(0xff0062ff),
-                ),
-                      SizedBox(width:10),
-                      Text(
-                          "Local businesses",
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.w600,
-                            letterSpacing: 1.0,
-                            color: Color(0xff171717),
-                          )
-                      ),
-                    ],
-                  ),
-
-
-                    SizedBox(height: 20,),
-                    Expanded(
-                      child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 2,horizontal:2),
-                        height: double.infinity,
-                        child: ListView.builder(
-                          scrollDirection: Axis.vertical,
-                          itemCount: categories.length,
-                          itemBuilder: (BuildContext context, int index){
-                            Category category = categories[index];
-                            return InkWell(
-                              onTap: () => setSearchAndToggle( category.categoryName),
-
-                              child: Card(
-                                elevation: 3.0,
-                                 shape: RoundedRectangleBorder(side: BorderSide(width: 0.2),borderRadius: BorderRadius.circular(10)),
-
-                                 child : Padding(
-                                   padding: const EdgeInsets.all(8.0),
-                                   child: Column(
-                                     children: [
-                                       Text(
-                                        category.categoryName,
-                                        style: TextStyle( fontSize: 18,
-                                         fontFamily: 'roboto',
-                                         fontWeight: FontWeight.bold,
-                                         color: Colors.blueGrey[700]
-                                       )
-                                       ),
-                                       Text(
-                                           category.points,
-                                           style: TextStyle( fontSize: 12,
-                                               fontFamily: 'roboto',
-                                               fontWeight: FontWeight.bold,
-                                               color: Colors.blueGrey[700]
-                                           )
-                                       )
-                                     ],
-                                   ),
-                                 )
-
-                                ),
-
-                            );
-                          }
-                        )
-                      )
-                    )
-                  ],
-                )
-              );
   }
 
   Container buildExploreFilterWidget() {

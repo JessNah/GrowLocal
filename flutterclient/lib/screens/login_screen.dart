@@ -70,18 +70,6 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-/*
-
-return Scaffold(
-      backgroundColor: Color(0xff161616),
-      body: Container(
-        padding: EdgeInsets.all(30),
-        child: loginContent(),
-      ),
-    );
-
- */
-
 class loginContent extends StatelessWidget {
   TextEditingController phoneController = new TextEditingController();
 

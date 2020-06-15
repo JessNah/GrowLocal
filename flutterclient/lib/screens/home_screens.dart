@@ -16,7 +16,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   void initState() {
     //TODO: implement initState
     super.initState();
-    //_tabController = new TabController(length: 4, vsync: this, initialIndex: 0);
     _tabController = new TabController(length: 3, vsync: this, initialIndex: 0);
   }
   @override
@@ -29,7 +28,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           children: <Widget>[
             SingleChildScrollView(child: ExploreScreen()),
             SingleChildScrollView(child: ExploreDealsScreen()),
-/*            Container(),*/
             Container(),
           ]
         ),
@@ -51,15 +49,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           ),
           child: TabBar(
             controller: _tabController,
-
-   //         labelColor: Colors.white,
-
             labelColor: Colors.white,
-
-            labelStyle: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 10,
-            ),
+            labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 10,),
             unselectedLabelColor: Colors.black,
             unselectedLabelStyle: TextStyle(
               fontWeight: FontWeight.normal
@@ -67,32 +58,15 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             indicatorColor: Colors.transparent,
             tabs: <Widget> [
               Tab(
-                icon: Icon(
-                  FontAwesomeIcons.rocket,
-
-                  size: 25,
-                ),
+                icon: Icon(FontAwesomeIcons.rocket, size: 25,),
                 text: "REWARDS",
               ),
               Tab(
-                icon: Icon(
-                  FontAwesomeIcons.lightbulb,
-                  size: 25,
-                ),
+                icon: Icon(FontAwesomeIcons.lightbulb, size: 25,),
                 text: "DEALS",
               ),
-/*              Tab(
-                icon: Icon(
-                  Icons.favorite_border,
-                  size: 25,
-                ),
-                text: "COLLECTION",
-              ),*/
               Tab(
-                icon: Icon(
-                  Icons.person_outline,
-                  size: 25,
-                ),
+                icon: Icon(Icons.person_outline, size: 25,),
                 text: "SETTINGS",
               ),
             ]

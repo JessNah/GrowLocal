@@ -202,25 +202,6 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   }
 }
 
-
-/*
-Deprecated code, may reuse elsewhere.
-Use example:
-
-ClipPath(
-    clipper: CurvedRectangleClipper(),
-    child: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.bottomLeft,
-                end: Alignment.topCenter,
-                colors: [Color(0xff0062ff).withOpacity(0.7), Colors.deepPurple.withOpacity(0.18), Colors.purple.withOpacity(0.01)])),
-        padding: EdgeInsets.only(
-          right: 50,
-          top: 50,
-           ),
-      child: (YOUR WIDGET)
- */
 class CurvedRectangleClipper extends CustomClipper<Path> {
   final double offset = 130;
   @override
