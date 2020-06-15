@@ -71,7 +71,7 @@ class LoginPage extends StatelessWidget {
 }
 
 class loginContent extends StatelessWidget {
-  TextEditingController phoneController = new TextEditingController();
+  TextEditingController phoneController = new TextEditingController(text:"0456478123");
 
    loginContent({
     Key key,
@@ -107,7 +107,8 @@ class loginContent extends StatelessWidget {
                 decoration: BoxDecoration(
                     border: Border(bottom: BorderSide(color: Colors.grey[300]))
                 ),
-                child: TextField(
+                child: TextFormField(
+
                   controller: phoneController,
                   decoration: InputDecoration(
                       border: InputBorder.none,
@@ -119,7 +120,8 @@ class loginContent extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                 ),
-                child: TextField(
+                child: TextFormField(
+                  initialValue: "password@123",
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       hintStyle: TextStyle(color: Colors.grey.withOpacity(.8)),
@@ -139,8 +141,7 @@ class loginContent extends StatelessWidget {
             FadeAnimation(1.8, Center(
               child: RaisedButton(
                 onPressed: () {
-                  if (phoneController.text.isEmpty ||
-                      phoneController.text.contains('123')) {
+                  if (phoneController.text.contains('123')) {
                     Navigator.push(context, PageTransition(
                         type: PageTransitionType.fade, child: HomeScreen()));
                   } else {

@@ -445,7 +445,7 @@ class _BusinessExploreScreenState extends State<BusinessExploreScreen> with Sing
                                                 ),
                                               ),
                                               subtitle: Text(
-                                                business.phoneNum,
+                                                business.phoneNum + business.dealR,
                                                 style: TextStyle(
                                                   fontWeight: FontWeight.bold,
                                                 ),

@@ -65,7 +65,7 @@ class _ProjectsPageWidget extends State<ProjectsPageWidget> with SingleTickerPro
 
           Container( //TODO: use Expanded?
               height: 1000,
-              color: Colors.yellow[100],
+              color: Colors.grey[100],
               child: ListView(
                 children: <Widget>[
                   SizedBox(height: 15,),
@@ -182,7 +182,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
                                     "Recent Reward Points",
                                     style: TextStyle(
                                       letterSpacing: 1,
-                                      color: Colors.blue,
+                                      color: Colors.deepOrangeAccent,
                                       fontSize: 15,
                                       fontWeight: FontWeight.bold,
                                       fontFamily: 'Roboto Mono'
@@ -293,7 +293,7 @@ class ProjectsListContainerWidget extends StatelessWidget {
                                     "Deals ",
                                     style: TextStyle(
                                         letterSpacing: 1,
-                                        color: Colors.green,
+                                        color: Colors.deepOrangeAccent,
                                         fontSize: 15,
                                         fontWeight: FontWeight.bold,
                                         fontFamily: 'roboto'
