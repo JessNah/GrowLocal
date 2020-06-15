@@ -68,7 +68,7 @@ class _BusinessAnalyticalScreenState extends State<BusinessAnalyticalScreen> wit
       chartContainer = WeeklyBarChart.withSampleData();
     return SingleChildScrollView(
           child: Container(
-            color: Colors.yellow[100],
+            color: Colors.grey[100],
             child: Column(
 
               children: <Widget>[
@@ -92,7 +92,7 @@ class _BusinessAnalyticalScreenState extends State<BusinessAnalyticalScreen> wit
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 1.0,
-                        color: Colors.blue,
+                        color: Colors.deepOrangeAccent,
                       ),
                     )
                 ),
@@ -123,7 +123,7 @@ class _BusinessAnalyticalScreenState extends State<BusinessAnalyticalScreen> wit
                   ],
                 ),
                 Container(
-                  height: 220,
+                  height: 250,
                   margin: EdgeInsets.only(top: 12, bottom: 12),
                   padding: EdgeInsets.only(left: 15, right: 05),
                   child: chartContainer,
@@ -136,13 +136,13 @@ class _BusinessAnalyticalScreenState extends State<BusinessAnalyticalScreen> wit
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 1.0,
-                        color: Colors.blue,
+                        color: Colors.deepOrangeAccent,
                       ),
                     )
                 ),
                 /*child:*/ Container(
                     padding: EdgeInsets.symmetric(vertical: 2),
-                    height:150,
+                    height:170,
                     child: ListView.builder(
                         scrollDirection: Axis.vertical,
                         itemCount: categories[2].r.length,
