@@ -34,9 +34,9 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> with SingleTick
             ),
             bottomNavigationBar: new Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.redAccent,
                 border: Border.all(
-                  color: Colors.grey[200],
+                  color: Colors.white70,
                   width: 1.0,
                 ),
                 boxShadow: [
@@ -50,12 +50,12 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> with SingleTick
               ),
               child: TabBar(
                   controller: _tabController,
-                  labelColor: Colors.redAccent,
+                  labelColor: Colors.white,
                   labelStyle: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 10,
                   ),
-                  unselectedLabelColor: Colors.grey[400],
+                  unselectedLabelColor: Colors.black,
                   unselectedLabelStyle: TextStyle(
                       fontWeight: FontWeight.normal
                   ),
