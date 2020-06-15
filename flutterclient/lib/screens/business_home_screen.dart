@@ -34,7 +34,7 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> with SingleTick
             ),
             bottomNavigationBar: new Container(
               decoration: BoxDecoration(
-                color: Colors.redAccent,
+                color: Colors.deepOrangeAccent,
                 border: Border.all(
                   color: Colors.white70,
                   width: 1.0,
@@ -55,7 +55,7 @@ class _BusinessHomeScreenState extends State<BusinessHomeScreen> with SingleTick
                     fontWeight: FontWeight.bold,
                     fontSize: 10,
                   ),
-                  unselectedLabelColor: Colors.black,
+                  unselectedLabelColor: Colors.grey[800],
                   unselectedLabelStyle: TextStyle(
                       fontWeight: FontWeight.normal
                   ),

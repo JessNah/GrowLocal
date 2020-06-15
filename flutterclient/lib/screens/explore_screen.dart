@@ -83,7 +83,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
         )
     );
     return Container(
-        color : Colors.white,
+        color : Colors.grey[100],
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center, //TODO: maybe remove
             children: <Widget>[
@@ -141,8 +141,8 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
               children: [
                 Icon(
                   Icons.business,
-                  size: 60,
-                  color: Color(0xff0062ff),
+                  size: 50,
+                  color: Colors.deepOrangeAccent,
                 ),
                 SizedBox(width:10),
                 Text(
@@ -151,7 +151,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                       fontSize: 30,
                       fontWeight: FontWeight.w600,
                       letterSpacing: 1.0,
-                      color: Color(0xff171717),
+                      color: Colors.deepOrangeAccent,
                     )
                 ),
               ],
@@ -195,6 +195,14 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                       ),
                                       Text(
                                           category.subText,
+                                          style: TextStyle( fontSize: 12,
+                                              fontFamily: 'roboto',
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.blueGrey[700]
+                                          )
+                                      ),
+                                      Text(
+                                          category.newDeals,
                                           style: TextStyle( fontSize: 12,
                                               fontFamily: 'roboto',
                                               fontWeight: FontWeight.bold,

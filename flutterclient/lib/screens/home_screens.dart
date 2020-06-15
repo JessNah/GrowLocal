@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         ),
         bottomNavigationBar: new Container(
           decoration: BoxDecoration(
-              color: Colors.red,
+              color: Colors.deepOrangeAccent,
               border: Border.all(
                 color: Colors.white70,
                 width: 1.0,
@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             controller: _tabController,
             labelColor: Colors.white,
             labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 10,),
-            unselectedLabelColor: Colors.black,
+            unselectedLabelColor: Colors.grey[800],
             unselectedLabelStyle: TextStyle(
               fontWeight: FontWeight.normal
             ),

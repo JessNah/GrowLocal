@@ -70,7 +70,6 @@ class _ExploreDealsScreenState extends State<ExploreDealsScreen> with SingleTick
     }
   }
 
-
   Container DealsWidget() {
     final Shader linearGradient = LinearGradient(
       begin: Alignment.topLeft,
@@ -83,7 +82,7 @@ class _ExploreDealsScreenState extends State<ExploreDealsScreen> with SingleTick
         )
     );
     return Container(
-        color: Colors.yellow[100],
+        color: Colors.grey[100],
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center, //TODO: maybe remove
             children: <Widget>[
@@ -95,7 +94,7 @@ class _ExploreDealsScreenState extends State<ExploreDealsScreen> with SingleTick
                       color: Colors.white,
                       boxShadow: [
                         BoxShadow(
-                            color: Colors.grey[200],
+                            color: Colors.grey[400],
                             offset: Offset(0.0, 1.0),
                             blurRadius: 4
                         )
@@ -141,6 +140,216 @@ class _ExploreDealsScreenState extends State<ExploreDealsScreen> with SingleTick
                        // buildFooter(),
                       ]
                   )
+              )
+            ]
+        )
+    );
+  }
+
+  Container buildCategoryWidget() {
+    return Container(
+      height: 600,
+      color: Colors.grey[100], //TODO: Or Colors.black12
+      padding: EdgeInsets.only(top: 32, bottom: 32, left: 16),
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+                "Local Business Deals",
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1.0,
+                  color: Colors.deepOrangeAccent[400],
+                )
+            ),
+            SizedBox(height: 20,),
+            Expanded(
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 2),
+                  height: double.infinity,
+                  child: ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      itemCount: categories.length,
+                      itemBuilder: (BuildContext context, int index){
+                        Category category = categories[index];
+                        return InkWell(
+                          //  onTap: () => setSearchAndToggle( category.categoryName),
+                            child: Container(
+                                width: 170,
+                                margin: index == 0 ? EdgeInsets.only(right: 16, top: 4, bottom: 4) : EdgeInsets.only(right: 16, top: 4, bottom: 4),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    //   color: Colors.white,
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Colors.transparent, //TODO: Colors.grey[200]
+                                          offset: Offset(0.0, 4.0),
+                                          blurRadius: 4
+                                      )
+                                    ]
+                                ),
+                                child: Stack(
+                                  /*  crossAxisAlignment: CrossAxisAlignment.start,*/
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: EdgeInsets.only(bottom: 5),
+                                        child:  Column(children: [
+                                          Container (
+                                              alignment: Alignment.centerLeft,
+                                              child:
+//                                            Text(
+//
+//                                              category.categoryName,
+//                                              style: TextStyle(
+//                                                fontWeight: FontWeight.bold,
+//                                                color: Colors.blue,
+//                                              ),
+//                                            )
+                                              ListTile(
+                                                contentPadding: EdgeInsets.symmetric(horizontal: 0.0),
+                                                leading: Container(
+                                                  width: 44.0,
+                                                  height: 44.0,
+                                                  decoration: BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        color: Colors.black45.withOpacity(0.1),
+                                                        offset: Offset(0, 2),
+                                                        blurRadius: 6.0,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  child: CircleAvatar(
+                                                    child: ClipRRect(
+                                                      child: Image(
+                                                        height: 45.0,
+                                                        width: 45.0,
+                                                        image: AssetImage(category.imageUrl),
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                title: Text(
+                                                  category.categoryName,
+                                                  style: TextStyle(
+                                                      fontWeight: FontWeight.bold,
+                                                      color: Colors.deepOrangeAccent[200]
+                                                  ),
+                                                ),
+                                              )
+                                          ),
+                                          SizedBox(height: 10,),
+                                          Container(
+                                            //    color: Colors.lightGreen[100],
+                                              height: 150,
+                                              alignment: Alignment.centerLeft,
+                                              child: ListView.builder(
+                                                  scrollDirection: Axis.vertical,
+                                                  itemCount: categories[index].d.length,
+                                                  itemBuilder: (BuildContext context, int index2){
+                                                    Deals d = categories[index].d[index2];
+                                                    return InkWell(
+                                                      //      onTap: () => setSearchAndToggle( category.categoryName),
+                                                        child: Container(
+                                                          width: 170,
+                                                          margin: index == 0 ? EdgeInsets.only(right: 16, top: 4, bottom: 4) : EdgeInsets.only(right: 16, top: 4, bottom: 4),
+
+                                                          decoration: BoxDecoration(
+                                                              borderRadius: BorderRadius.circular(10),
+                                                              //   color: Colors.lightGreen[100],
+                                                              boxShadow: [
+                                                                BoxShadow(
+                                                                    color: Colors.transparent, //TODO: Colors.grey[200]
+                                                                    offset: Offset(0.0, 4.0),
+                                                                    blurRadius: 4
+                                                                )
+                                                              ]
+                                                          ),
+                                                          child:  Align(
+                                                              alignment: Alignment.centerLeft,
+                                                              child: Text(d.dealData)
+                                                          ),
+                                                        )
+                                                    );
+                                                  }
+                                              )
+                                          )
+                                        ],
+                                        ),
+
+                                      )
+                                    ]
+                                )
+                            )
+                        );
+                      }
+                  ),
+                )
+            )
+          ]
+      ),
+    );
+  }
+
+
+
+
+
+  Container buildExploreFilterWidget() {
+    return Container(
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: Row(
+            children: <Widget>[
+              InkWell(
+                onTap: () => setSearchAndToggle("Covid"),
+                child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                    margin: EdgeInsets.only(right: 6),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50.0),
+                        color: Colors.white,
+                        border: Border.all(
+                          color: Colors.grey[300],
+                          width: 1.0,
+                        )
+                    ),
+                    child: Text("Covid")
+                ),
+              ),
+              InkWell(
+                onTap: () => setSearchAndToggle("Park"),
+                child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                    margin: EdgeInsets.only(right: 6),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50.0),
+                        color: Colors.white,
+                        border: Border.all(
+                          color: Colors.grey[300],
+                          width: 1.0,
+                        )
+                    ),
+                    child: Text("Parks")
+                ),
+              ),
+              InkWell(
+                onTap: () => setSearchAndToggle("Forest Fires"),
+                child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                    margin: EdgeInsets.only(right: 6),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50.0),
+                        color: Colors.white,
+                        border: Border.all(
+                          color: Colors.grey[300],
+                          width: 1.0,
+                        )
+                    ),
+                    child: Text("Forest Fires")
+                ),
               )
             ]
         )
@@ -332,211 +541,8 @@ class _ExploreDealsScreenState extends State<ExploreDealsScreen> with SingleTick
     );
   }
 
-  Container buildCategoryWidget() {
-    return Container(
-                height: 600,
-                color: Colors.grey[100], //TODO: Or Colors.black12
-                padding: EdgeInsets.only(top: 32, bottom: 32, left: 16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      "Local Business Deals",
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 1.0,
-                        color: Colors.red,
-                      )
-                    ),
-                    SizedBox(height: 20,),
-                    Expanded(
-                      child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 2),
-                        height: double.infinity,
-                        child: ListView.builder(
-                          scrollDirection: Axis.vertical,
-                          itemCount: categories.length,
-                          itemBuilder: (BuildContext context, int index){
-                            Category category = categories[index];
-                            return InkWell(
-                            //  onTap: () => setSearchAndToggle( category.categoryName),
-                              child: Container(
-                                width: 170,
-                                margin: index == 0 ? EdgeInsets.only(right: 16, top: 4, bottom: 4) : EdgeInsets.only(right: 16, top: 4, bottom: 4),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                               //   color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.transparent, //TODO: Colors.grey[200]
-                                      offset: Offset(0.0, 4.0),
-                                      blurRadius: 4
-                                    )
-                                  ]
-                                ),
-                                child: Stack(
-                                /*  crossAxisAlignment: CrossAxisAlignment.start,*/
-                                  children: <Widget>[
-                                    Padding(
-                                      padding: EdgeInsets.only(bottom: 5),
-                                      child:  Column(children: [
-                                          Container (
-                                              alignment: Alignment.centerLeft,
-                                            child:
-//                                            Text(
-//
-//                                              category.categoryName,
-//                                              style: TextStyle(
-//                                                fontWeight: FontWeight.bold,
-//                                                color: Colors.blue,
-//                                              ),
-//                                            )
-                                              ListTile(
-                                                contentPadding: EdgeInsets.symmetric(horizontal: 0.0),
-                                                leading: Container(
-                                                  width: 44.0,
-                                                  height: 44.0,
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                        color: Colors.black45.withOpacity(0.1),
-                                                        offset: Offset(0, 2),
-                                                        blurRadius: 6.0,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  child: CircleAvatar(
-                                                    child: ClipRRect(
-                                                      child: Image(
-                                                        height: 45.0,
-                                                        width: 45.0,
-                                                        image: AssetImage(category.imageUrl),
-                                                        fit: BoxFit.cover,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                title: Text(
-                                                  category.categoryName,
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.blue
-                                                  ),
-                                                ),
-                                              )
-                                          ),
-                                        SizedBox(height: 10,),
-                                          Container(
-                                        //    color: Colors.lightGreen[100],
-                                             height: 150,
-                                              alignment: Alignment.centerLeft,
-                                              child: ListView.builder(
-                                                  scrollDirection: Axis.vertical,
-                                                  itemCount: categories[index].d.length,
-                                                  itemBuilder: (BuildContext context, int index2){
-                                                    Deals d = categories[index].d[index2];
-                                                    return InkWell(
-                                                //      onTap: () => setSearchAndToggle( category.categoryName),
-                                                      child: Container(
-                                                          width: 170,
-                                                          margin: index == 0 ? EdgeInsets.only(right: 16, top: 4, bottom: 4) : EdgeInsets.only(right: 16, top: 4, bottom: 4),
 
-                                                          decoration: BoxDecoration(
-                                                              borderRadius: BorderRadius.circular(10),
-                                                           //   color: Colors.lightGreen[100],
-                                                              boxShadow: [
-                                                                BoxShadow(
-                                                                    color: Colors.transparent, //TODO: Colors.grey[200]
-                                                                    offset: Offset(0.0, 4.0),
-                                                                    blurRadius: 4
-                                                                )
-                                                              ]
-                                                          ),
-                                                          child:  Align(
-                                                              alignment: Alignment.centerLeft,
-                                                              child: Text(d.dealData)
-                                                              ),
-                                                      )
-                                                    );
-                                                    }
-                                                    )
-                                                    )
-                                                    ],
-                                                      ),
 
-                                                )
-                                               ]
-                                                    )
-                            )
-                            );
-                                                  }
-                                              ),
-                                          )
-                    )
-                                        ]
-                                       ),
-                                      );
-  }
-
-  Container buildExploreFilterWidget() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: Row(
-        children: <Widget>[
-          InkWell(
-            onTap: () => setSearchAndToggle("Covid"),
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-              margin: EdgeInsets.only(right: 6),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50.0),
-                color: Colors.white,
-                border: Border.all(
-                  color: Colors.grey[300],
-                  width: 1.0,
-                )
-              ),
-              child: Text("Covid")
-            ),
-          ),
-          InkWell(
-            onTap: () => setSearchAndToggle("Park"),
-            child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-                margin: EdgeInsets.only(right: 6),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50.0),
-                    color: Colors.white,
-                    border: Border.all(
-                      color: Colors.grey[300],
-                      width: 1.0,
-                    )
-                ),
-                child: Text("Parks")
-            ),
-          ),
-          InkWell(
-            onTap: () => setSearchAndToggle("Forest Fires"),
-            child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-                margin: EdgeInsets.only(right: 6),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50.0),
-                    color: Colors.white,
-                    border: Border.all(
-                      color: Colors.grey[300],
-                      width: 1.0,
-                    )
-                ),
-                child: Text("Forest Fires")
-            ),
-          )
-        ]
-      )
-    );
-  }
 
 
   StatefulWidget ProblemsWidget(setTopProblems) {

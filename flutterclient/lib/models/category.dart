@@ -7,12 +7,13 @@ class Category{
   String categoryName;
   String points;
   String subText;
+  String newDeals;
   String id;
   int c;
   List<Deals> d;
   List<Deals> r;
 
-  Category({this.imageUrl, this.categoryName, this.points, this.subText, this.id, this.c, this.d, this.r});
+  Category({this.imageUrl, this.categoryName, this.points, this.subText, this.newDeals, this.id, this.c, this.d, this.r});
 }
 
 List<Category> categories = [
@@ -20,7 +21,8 @@ List<Category> categories = [
     imageUrl: "images/restaurantsCategory.jpg",
     categoryName: "Jasmine Indian Restaurant",
     points: "(258 reward points)",
-    subText: "10-15 min\n2 new deals",
+    subText: "Time taken to visit : 10-15 min",
+    newDeals: "2 new deals",
     id:"1",
     c: 0xFF42A5F5,
     d: [
@@ -68,7 +70,8 @@ List<Category> categories = [
       imageUrl: "images/groceryCategory.jpg",
       categoryName: "Asian Mart",
       points: "(2400 reward points)",
-      subText: "25-35 min\n14 new deals",
+      subText: "Time taken to visit : 25-35 min",
+      newDeals: "14 new deals",
       id:"2",
       c: 0xFF42A5F5,
       d: [
@@ -116,7 +119,8 @@ List<Category> categories = [
       imageUrl: "images/spices-of-india.jpg",
       categoryName: "Indian Groceries",
       points: "(458 reward points)",
-      subText: "5-15 min\n7 new deals",
+      subText: "Time taken to visit : 5-15 min",
+      newDeals: "4 new deals",
       id:"3",
       c: 0xFF42A5F5,
       d: [
@@ -173,7 +177,8 @@ List<Category> categories = [
       imageUrl: "images/thai.jpg",
       categoryName: "Thai Restaurant",
       points: "(100 reward points)",
-      subText: "10-15 min\n1 new deal",
+      subText: "Time taken to visit : 10-15 min",
+      newDeals: "1 new deal",
       id:"4",
       c: 0xFF42A5F5,
       d: [
@@ -221,7 +226,8 @@ List<Category> categories = [
       imageUrl: "images/pizza.jpg",
       categoryName: "Alan's Pizza",
       points: "(400 reward points)",
-      subText: "20-25 min\n5 new deals",
+      subText: "Time taken to visit : 20-25 min",
+      newDeals: "5 new deals",
       id:"5",
       c: 0xFF42A5F5,
       d: [
@@ -269,7 +275,8 @@ List<Category> categories = [
       imageUrl: "images/vegan.jpg",
       categoryName: "Vegan Restaurant",
       points: "(1200 reward points)",
-      subText: "10-15 min\n6 new deals",
+      subText: "Time taken to visit : 10-15 min",
+    newDeals: "6 new deals",
       id:"6",
       c: 0xFF42A5F5,
       d: [
